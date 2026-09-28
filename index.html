@@ -402,6 +402,15 @@ body.board-open{overflow:hidden}
 .wall-sort{display:flex;border:1.5px solid var(--line-2);border-radius:10px;overflow:hidden;flex:none}
 .wall-sort button{border:0;background:#fff;padding:7px 12px;font-size:13.5px;font-weight:700;color:var(--ink-3);cursor:pointer}
 .wall-sort button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.reply-guide{display:flex;align-items:center;gap:12px;margin-top:22px;background:#fff;border:1.5px solid var(--line);border-left:5px solid var(--track);border-radius:14px;padding:14px 16px;box-shadow:0 3px 0 var(--line)}
+.reply-guide>svg{flex:none;width:26px;height:26px;fill:none;stroke:var(--track);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.reply-guide div{flex:1;min-width:0;line-height:1.5}
+.reply-guide div>b{display:block;font-size:16.5px;color:var(--ink)}
+.reply-guide span{font-size:14px;color:var(--ink-2)}
+.reply-guide .btn{flex:none;min-height:42px;padding:8px 14px;background:var(--track);border-color:var(--track);color:#fff}
+.reply-guide .btn:disabled{opacity:.6}
+@media (max-width:480px){.reply-guide{flex-wrap:wrap}.reply-guide .btn{width:100%}}
+.refresh-msg{margin:8px 2px 0;font-size:13.5px;color:var(--ink-3);min-height:1em}
 .wall{columns:2;column-gap:10px}
 @media (max-width:380px){.wall{columns:1}}
 .memo{position:relative;break-inside:avoid;margin:0 0 10px;border-radius:6px 16px 16px 16px;padding:12px 14px 10px;font-size:15px;line-height:1.6;box-shadow:0 2px 0 rgba(0,0,0,.07);display:flex;flex-direction:column;gap:4px}
@@ -946,6 +955,12 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
     </form>
   </div>
 
+  <div class="reply-guide">
+    <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+    <div><b>운영진 답변은 새로고침하면 보여요</b><span>불편한 점을 남기셨다면 잠시 뒤 <b>새로고침</b> 버튼을 눌러 보세요. 답변이 글 아래에 달려요.</span></div>
+    <button class="btn" type="button" id="wallRefresh">새로고침</button>
+  </div>
+  <p class="refresh-msg" id="refreshMsg" role="status"></p>
   <div class="wall-bar">
     <div class="tabs" id="wallChips"></div>
     <div class="wall-sort" id="wallSort"><button type="button" data-sort="new" aria-pressed="true">최신순</button><button type="button" data-sort="like" aria-pressed="false">공감순</button></div>
@@ -1833,7 +1848,7 @@ $("#cheerForm").addEventListener("submit", async e => {
     state.messages = [saved, ...state.messages.filter(m => m.id !== saved.id)];
     wallCat = "전체"; wallSort = "new"; renderWall();
     f.text.value = ""; f.to.value = ""; $("#msgCount").textContent = "0"; renderPick();
-    msg.textContent = data.cat === "불편해요" ? "알려 주셔서 고맙습니다. 운영진이 확인할게요." : "붙였어요! 고맙습니다.";
+    msg.textContent = data.cat === "불편해요" ? "알려 주셔서 고맙습니다. 운영진이 확인하고 답을 달아 둘게요. 잠시 뒤 새로고침 버튼을 눌러 보세요." : "붙였어요! 고맙습니다.";
     msg.classList.add("ok");
     store.set("dk_name", { name: data.name, branch: data.branch });
   } catch(err){
@@ -1889,7 +1904,7 @@ function applyData(d){
 let loading = false;
 async function loadData(force){
   if (!CONFIG.API_URL){ $("#previewNote").classList.remove("hide"); applyData(null); return; }
-  if (loading) return;
+  if (loading) return null;
   const cached = store.get("dk_cache2");
   if (cached && cached.d){ applyData(cached.d); if (!force && Date.now() - cached.t < 60000) return; }
   else applyData(null);
@@ -1899,14 +1914,24 @@ async function loadData(force){
       try {
         const r = await fetchT(CONFIG.API_URL + "?action=all&v=" + Math.floor(Date.now() / 60000), {}, 12000);
         const j = await r.json();
-        if (j.ok){ store.set("dk_cache2", { t: Date.now(), d: j }); applyData(j); return; }
+        if (j.ok){ store.set("dk_cache2", { t: Date.now(), d: j }); applyData(j); return true; }
       } catch(e){}
       await sleep(2000 * (i + 1) + Math.random() * 2000);
     }
     setTimeout(() => loadData(true), 30000 + Math.random() * 30000);
+    return false;
   } finally { loading = false; }
 }
 setTimeout(loadData, 300 + Math.random() * 3200);
+$("#wallRefresh").addEventListener("click", async e => {
+  const b = e.currentTarget, m = $("#refreshMsg");
+  if (!CONFIG.API_URL){ m.textContent = "미리보기 화면에서는 새로고침할 내용이 없어요."; return; }
+  b.disabled = true; b.textContent = "불러오는 중…"; m.textContent = "";
+  const ok = await loadData(true);
+  b.disabled = false; b.textContent = "새로고침";
+  const hh = new Date().toLocaleTimeString("ko-KR", { hour:"2-digit", minute:"2-digit" });
+  m.textContent = ok === false ? "지금 사람이 많아 늦어지고 있어요. 조금 뒤에 다시 눌러 주세요." : `${hh} 기준 최신 내용으로 바꿨어요.`;
+});
 // 화면을 켜 두면 4~5분마다 새로 불러와요 (사람마다 시점이 달라서 몰리지 않아요)
 (function tick(){ setTimeout(() => { if (CONFIG.API_URL && document.visibilityState === "visible") loadData(true); tick(); }, 240000 + Math.random() * 60000); })();
 // 다른 앱 보다가 다시 돌아오면, 오래됐을 때만 새로 불러와요
