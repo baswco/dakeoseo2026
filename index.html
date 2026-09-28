@@ -53,6 +53,10 @@ button{font-family:inherit}
 .notice-bar b{flex:none;background:var(--track);border-radius:4px;padding:1px 7px;font-size:12px}
 .notice-bar span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .notice-bar i{flex:none;font-style:normal;opacity:.7}
+.notice-bar em{flex:none;font-style:normal;font-size:12.5px;opacity:.6;font-variant-numeric:tabular-nums}
+.notice-bar span.roll{animation:roll .45s ease}
+@keyframes roll{from{transform:translateY(70%);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.notice-bar span.roll{animation:none}}
 
 /* ---------- 상단 메뉴 ---------- */
 .nav{position:sticky;top:0;z-index:40;background:rgba(255,253,248,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
@@ -462,7 +466,7 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
 </div>
 
 <!-- 게시판에 '필독' 글이 있으면 자동으로 나타나는 띠 (수정할 필요 없음) -->
-<button class="notice-bar hide" id="noticeBar" type="button"><b>필독</b><span id="noticeText"></span><i>보기 ›</i></button>
+<button class="notice-bar hide" id="noticeBar" type="button"><b>필독</b><span id="noticeText"></span><em id="noticeCount"></em><i>보기 ›</i></button>
 
 <!-- ============ 상단 메뉴 ============ -->
 <nav class="nav" aria-label="바로가기">
@@ -1507,9 +1511,13 @@ function isNew(d){
 }
 function renderBoard(){
   const list = sortedBoard();
-  // 필독 띠
-  const pin = list.find(p => p.pin);
-  if (pin){ $("#noticeText").textContent = pin.title; $("#noticeBar").classList.remove("hide"); }
+  // 필독 띠: 필독 글이 여러 개면 4초마다 돌아가며 보여 줘요
+  noticePins = list.map((p,i) => ({p,i})).filter(x => x.p.pin);
+  if (noticePins.length){
+    if (noticeIdx >= noticePins.length) noticeIdx = 0;
+    showNotice(false);
+    $("#noticeBar").classList.remove("hide");
+  } else $("#noticeBar").classList.add("hide");
   // 미리보기 3개
   $("#boardMini").innerHTML = list.slice(0,4).map((p,i) => `<li><button type="button" data-open="${i}"><span class="cat cat-${esc(p.cat)}">${esc(p.cat)}</span>${p.pin?'<span class="pin">필독</span>':""}<span class="tt2">${esc(p.title)}</span></button></li>`).join("") || '<li class="empty">아직 글이 없어요</li>';
   // 칩
@@ -1530,6 +1538,18 @@ function renderBoard(){
   $("#boardUpd").textContent = state.live && state.updated ? `마지막 확인 ${state.updated}` : "";
   $("#boardUpdated").textContent = state.live && state.updated ? state.updated : "";
 }
+let noticePins = [], noticeIdx = 0, noticePaused = false;
+function showNotice(anim){
+  const x = noticePins[noticeIdx]; if (!x) return;
+  const el = $("#noticeText");
+  el.textContent = x.p.title;
+  $("#noticeCount").textContent = noticePins.length > 1 ? `${noticeIdx + 1}/${noticePins.length}` : "";
+  if (anim){ el.classList.remove("roll"); void el.offsetWidth; el.classList.add("roll"); }
+}
+setInterval(() => {
+  if (noticePaused || noticePins.length < 2 || document.visibilityState !== "visible") return;
+  noticeIdx = (noticeIdx + 1) % noticePins.length; showNotice(true);
+}, 4000);
 function openBoard(cat, postIdx){
   if (cat) boardCat = cat;
   if (postIdx != null) boardCat = "전체";
@@ -1546,7 +1566,9 @@ document.addEventListener("click", e => {
   const f = e.target.closest("[data-board]"); if (f){ boardFromMain = true; boardCat = f.dataset.board; location.hash = "board"; }
   const m = e.target.closest("[data-open]"); if (m){ boardFromMain = true; history.pushState(null, "", "#board"); openBoard(null, Number(m.dataset.open)); }
 });
-$("#noticeBar").addEventListener("click", () => { boardFromMain = true; history.pushState(null,"","#board"); openBoard(null, 0); });
+$("#noticeBar").addEventListener("click", () => { const x = noticePins[noticeIdx]; boardFromMain = true; history.pushState(null,"","#board"); openBoard(null, x ? x.i : 0); });
+$("#noticeBar").addEventListener("mouseenter", () => noticePaused = true);
+$("#noticeBar").addEventListener("mouseleave", () => noticePaused = false);
 $("#boardBack").addEventListener("click", () => { if (boardFromMain) history.back(); else { history.replaceState(null,"",location.pathname); closeBoard(); } });
 $("#boardShare").addEventListener("click", e => copyText(location.href.split("#")[0] + "#board", e.target));
 $("#boardChips").addEventListener("click", e => { const c = e.target.closest("[data-cat]"); if (!c) return; boardCat = c.dataset.cat; renderBoard(); });
