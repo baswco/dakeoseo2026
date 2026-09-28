@@ -551,7 +551,7 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
   </div>
   <div class="greet-wrap">
   <figure class="pres">
-    <div class="pres-bg"><img src="images/president.png" alt="부산광역시사회복지사협회 윤해복 회장" width="560" height="631"></div>
+    <div class="pres-bg"><img loading="lazy" decoding="async" src="images/president.png" alt="부산광역시사회복지사협회 윤해복 회장" width="560" height="631"></div>
     <figcaption><small>부산광역시사회복지사협회</small><b>회장 윤해복</b></figcaption>
   </figure>
   <div class="letter">
@@ -751,7 +751,7 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
     <p>우리 지회 자리는 운동장 아래쪽 캐노피입니다.</p>
   </div>
   <div class="card">
-    <a class="map-img" href="images/layout.jpg" target="_blank" rel="noopener"><img src="images/layout.jpg" alt="신학대학 운동장 배치도: 위쪽 스탠드 가운데 본부, 왼쪽 의료부스와 에어바운스, 오른쪽 체험부스, 아래쪽 지회 캐노피와 접수 통로 두 곳"></a>
+    <a class="map-img" href="images/layout.jpg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="images/layout.jpg" alt="신학대학 운동장 배치도: 위쪽 스탠드 가운데 본부, 왼쪽 의료부스와 에어바운스, 오른쪽 체험부스, 아래쪽 지회 캐노피와 접수 통로 두 곳"></a>
     <div class="zoom-hint">사진을 누르면 크게 볼 수 있어요.</div>
     <ul class="legend">
       <li><b style="background:#e05431">본</b>본부 <span>스탠드 가운데</span></li>
@@ -781,7 +781,7 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
       <a class="btn" href="https://map.naver.com/p/search/부산가톨릭대학교 신학대학" target="_blank" rel="noopener">네이버지도</a>
       <button class="btn" type="button" data-copy="부산 금정구 기찰로102번길 56-7">주소 복사</button>
     </div>
-    <a class="map-img" style="margin-top:16px" href="images/campus-map.jpg" target="_blank" rel="noopener"><img src="images/campus-map.jpg" alt="캠퍼스 안내도: 정문에서 들어와 양재현 마르티노관, 이정식 요한관을 지나 김종룬 루카관 옆 신학대학 운동장"></a>
+    <a class="map-img" style="margin-top:16px" href="images/campus-map.jpg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="images/campus-map.jpg" alt="캠퍼스 안내도: 정문에서 들어와 양재현 마르티노관, 이정식 요한관을 지나 김종룬 루카관 옆 신학대학 운동장"></a>
     <p class="note">정문에서 양재현 마르티노관, 이정식 요한관을 지나면 김종룬 루카관 옆에 운동장이 있어요.</p>
   </div>
   <div class="card">
@@ -945,9 +945,9 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
 </section>
 
 <footer>
-  <img class="track" src="images/hero-track.jpg" alt="">
+  <img loading="lazy" decoding="async" class="track" src="images/hero-track.jpg" alt="">
   <p class="motto">행복한 사회복지사가 행복한 세상을 만듭니다.</p>
-  <img class="logo" src="images/logo.png" alt="부산광역시사회복지사협회">
+  <img loading="lazy" decoding="async" class="logo" src="images/logo.png" alt="부산광역시사회복지사협회">
   <p>주최·주관 부산광역시사회복지사협회 · 16개 구(군)지회</p>
   <p>47880 부산광역시 동래구 낙민로 25, 201호 (부산사회복지종합센터)</p>
 </footer>
@@ -1740,7 +1740,7 @@ $("#cheerForm").addEventListener("submit", async e => {
     } else {
       saved = { id: "local-" + Date.now(), time: new Date().toISOString(), likes:0, ...data };
     }
-    myIds.add(saved.id); store.set("dk_mine", [...myIds]); store.set("dk_last", Date.now());
+    myIds.add(saved.id); store.set("dk_mine", [...myIds]); store.set("dk_last", Date.now()); store.set("dk_cache2", null);
     state.messages = [saved, ...state.messages.filter(m => m.id !== saved.id)];
     wallCat = "전체"; wallSort = "new"; renderWall();
     f.text.value = ""; f.to.value = ""; $("#msgCount").textContent = "0"; renderPick();
@@ -1760,7 +1760,7 @@ $("#clapBtn").addEventListener("click", e => {
   const p = document.createElement("span"); p.className = "pop"; p.textContent = "+1";
   const r = e.currentTarget.getBoundingClientRect(); p.style.left = (r.left + r.width/2 - 10 + (Math.random()*30-15)) + "px"; p.style.top = (r.top - 4) + "px";
   document.body.appendChild(p); setTimeout(() => p.remove(), 800);
-  clearTimeout(clapTimer); clapTimer = setTimeout(sendClaps, 1500);
+  clearTimeout(clapTimer); clapTimer = setTimeout(sendClaps, 2500);
 });
 async function sendClaps(){
   const n = Math.min(clapPending, 50); if (!n) return;
@@ -1792,23 +1792,36 @@ function applyData(d){
   renderBoard(); renderAwards(); renderSponsors(); renderWall();
   if (location.hash === "#board" && !$("#board").classList.contains("hide")) renderBoard();
 }
-async function loadData(){
+/* 동시 접속 대비
+   - 휴대폰에 저장해 둔 내용을 먼저 보여 주고, 60초가 안 지났으면 다시 부르지 않아요.
+   - 첫 요청은 0.3~3.5초 사이로 흩어서 보내 한꺼번에 몰리지 않게 해요.
+   - 실패하면 간격을 늘려 가며 다시 시도하고, 그래도 안 되면 30~60초 뒤 조용히 한 번 더.
+   - 연결이 안 돼도 페이지 자체와 게시판 기본 글은 그대로 보여요. */
+let loading = false;
+async function loadData(force){
   if (!CONFIG.API_URL){ $("#previewNote").classList.remove("hide"); applyData(null); return; }
-  const cached = store.get("dk_cache");
-  if (cached) applyData(cached); else applyData(null);
-  for (let i = 0; i < 3; i++){
-    try {
-      const r = await fetchT(CONFIG.API_URL + "?action=all&v=" + Math.floor(Date.now() / 30000));
-      const j = await r.json();
-      if (j.ok){ store.set("dk_cache", j); applyData(j); return; }
-    } catch(e){}
-    await sleep(1500 * (i + 1) + Math.random() * 1500);
-  }
+  if (loading) return;
+  const cached = store.get("dk_cache2");
+  if (cached && cached.d){ applyData(cached.d); if (!force && Date.now() - cached.t < 60000) return; }
+  else applyData(null);
+  loading = true;
+  try {
+    for (let i = 0; i < 3; i++){
+      try {
+        const r = await fetchT(CONFIG.API_URL + "?action=all&v=" + Math.floor(Date.now() / 60000), {}, 12000);
+        const j = await r.json();
+        if (j.ok){ store.set("dk_cache2", { t: Date.now(), d: j }); applyData(j); return; }
+      } catch(e){}
+      await sleep(2000 * (i + 1) + Math.random() * 2000);
+    }
+    setTimeout(() => loadData(true), 30000 + Math.random() * 30000);
+  } finally { loading = false; }
 }
-// 동시에 몰리지 않도록 0~1.5초 사이로 흩어서 불러옵니다
-setTimeout(loadData, 200 + Math.random() * 1300);
-// 화면을 켜 두면 3분마다 게시판 · 메시지를 새로 불러옵니다
-setInterval(() => { if (CONFIG.API_URL && document.visibilityState === "visible") loadData(); }, 180000);
+setTimeout(loadData, 300 + Math.random() * 3200);
+// 화면을 켜 두면 4~5분마다 새로 불러와요 (사람마다 시점이 달라서 몰리지 않아요)
+(function tick(){ setTimeout(() => { if (CONFIG.API_URL && document.visibilityState === "visible") loadData(true); tick(); }, 240000 + Math.random() * 60000); })();
+// 다른 앱 보다가 다시 돌아오면, 오래됐을 때만 새로 불러와요
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") loadData(false); });
 
 /* ---------- 지회 연락처 ---------- */
 $("#branchList").innerHTML = BRANCHES.map(([n, head, org, mgr, tel]) => `
