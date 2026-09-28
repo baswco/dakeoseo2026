@@ -167,6 +167,9 @@ button{font-family:inherit}
 .tabs::-webkit-scrollbar{display:none}
 .tab{flex:none;border:1.5px solid var(--line-2);background:#fff;color:var(--ink-2);border-radius:999px;padding:8px 16px;font-size:15px;font-weight:700;cursor:pointer;min-height:42px}
 .tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.card .tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 16px;padding:0;overflow:visible}
+.card .tabs .tab{width:100%;padding:8px 6px;white-space:nowrap}
+@media (min-width:600px){.card .tabs{grid-template-columns:repeat(4,1fr)}}
 .game{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:16px 0;border-bottom:1px dashed var(--line)}
 .game:first-of-type{padding-top:4px}
 .game:last-child{border-bottom:0;padding-bottom:0}
@@ -362,11 +365,32 @@ body.board-open{overflow:hidden}
 .form .hp{position:absolute;left:-9999px}
 .form-msg{font-size:14px;min-height:20px;margin:0}
 .form-msg.err{color:#c23f1f}.form-msg.ok{color:#2f7a42}
-.wall{columns:2;column-gap:10px;margin-top:18px}
-.memo{break-inside:avoid;margin:0 0 10px;border-radius:4px 14px 14px 14px;padding:14px 14px 12px;font-size:15px;line-height:1.6;box-shadow:0 2px 0 rgba(0,0,0,.06)}
-.memo .to{font-weight:800;font-size:14px;margin-bottom:4px;display:block}
-.memo .from{display:block;margin-top:8px;font-size:12.5px;color:var(--ink-2)}
-.m0{background:#fff4d6}.m1{background:#e1f0fa}.m2{background:#e3f3e6}.m3{background:#fde6df}
+.composer{max-width:760px}
+.cat-pick{display:flex;flex-wrap:wrap;gap:6px}
+.cat-pick button{border:1.5px solid var(--line-2);background:#fff;color:var(--ink-2);border-radius:999px;padding:7px 14px;font-size:15px;font-weight:700;cursor:pointer;min-height:40px}
+.cat-pick button[aria-checked="true"]{color:var(--ink);border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.cat-pick button i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:0}
+.to-row.hide{display:none}
+.wall-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:26px 0 12px;flex-wrap:wrap}
+.wall-bar .tabs{margin:0;padding:2px 0 4px;flex:1;min-width:0}
+.wall-sort{display:flex;border:1.5px solid var(--line-2);border-radius:10px;overflow:hidden;flex:none}
+.wall-sort button{border:0;background:#fff;padding:7px 12px;font-size:13.5px;font-weight:700;color:var(--ink-3);cursor:pointer}
+.wall-sort button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.wall{columns:2;column-gap:10px}
+@media (max-width:380px){.wall{columns:1}}
+.memo{position:relative;break-inside:avoid;margin:0 0 10px;border-radius:6px 16px 16px 16px;padding:12px 14px 10px;font-size:15px;line-height:1.6;box-shadow:0 2px 0 rgba(0,0,0,.07);display:flex;flex-direction:column;gap:4px}
+.memo .top{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:12px;color:var(--ink-3)}
+.memo .ctag{font-weight:800;font-size:12px;border-radius:5px;padding:1px 7px;background:rgba(255,255,255,.7);color:var(--ink)}
+.memo .to{font-weight:800;font-size:14px}
+.memo .txt{white-space:pre-wrap;word-break:keep-all;overflow-wrap:anywhere}
+.memo .foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px}
+.memo .from{font-size:12.5px;color:var(--ink-2);min-width:0}
+.memo .like{flex:none;display:inline-flex;align-items:center;gap:4px;border:0;background:rgba(255,255,255,.75);border-radius:999px;padding:4px 10px;font-size:13px;font-weight:700;color:var(--ink-2);cursor:pointer;min-height:32px}
+.memo .like svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2}
+.memo .like.on{color:#d23b50}.memo .like.on svg{fill:#d23b50;stroke:#d23b50}
+.memo .reply{margin-top:6px;background:rgba(255,255,255,.8);border-radius:10px;padding:8px 10px;font-size:14px;line-height:1.55}
+.memo .reply b{display:block;font-size:12px;color:var(--track);margin-bottom:2px}
+.c-기대돼요{background:#e1f0fa}.c-축하해요{background:#fff1cc}.c-응원해요{background:#e3f3e6}.c-불편해요{background:#fde3dc}.c-자유{background:#f1eee6}
 .memo.mine{outline:2px solid var(--ink);outline-offset:-2px}
 .wall-more{margin-top:6px}
 .preview-note{font-size:13px;background:#fff4d6;border-radius:10px;padding:10px 12px;color:#7a4d00;margin-bottom:12px}
@@ -399,7 +423,7 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
 .tabbar a.hot span{background:var(--track);color:#fff;border-radius:999px;padding:0 7px}
 
 @media (max-width:360px){.quick a{font-size:12px}.tt li{grid-template-columns:92px 1fr}.checks,.awardees{grid-template-columns:1fr}.wall{columns:1}}
-@media (min-width:600px){.charts{grid-template-columns:1fr 1fr}.charts .wide{grid-column:1/-1}.awardees{grid-template-columns:1fr 1fr 1fr}.wall{columns:3}.sec{padding-left:32px;padding-right:32px}.tabs{margin:0 -32px 14px;padding:2px 32px 4px}}
+@media (min-width:600px){.charts{grid-template-columns:1fr 1fr}.charts .wide{grid-column:1/-1}.awardees{grid-template-columns:1fr 1fr 1fr}.wall{columns:3}.sec{padding-left:32px;padding-right:32px}.tabs{margin:0 -32px 14px;padding:2px 32px 4px}.card .tabs{margin:0 0 16px;padding:0}}
 /* ---------- PC 화면 (가로 1024px 이상) ---------- */
 @media (min-width:1024px){
   :root{--pad:max(56px, calc((100vw - 1240px) / 2))}
@@ -422,7 +446,7 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
   .sec>.tabs{margin:0 0 14px;padding:2px 0 4px}
   .sec.tint{padding-bottom:64px;margin-top:64px}
   .sec-head h2{font-size:36px}
-  .card .tabs{margin:0 -20px 14px;padding:2px 20px 4px}
+  .card .tabs{margin:0 0 16px;padding:0;max-width:640px}
   .greet-wrap{display:grid;grid-template-columns:340px 1fr;gap:40px;align-items:start}
   .pres{position:sticky;top:120px;margin:0}
   .pres-bg{max-width:none}
@@ -431,8 +455,8 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
   .g2>.sec-head,.g2>.full{grid-column:1/-1}
   .g2>.card+.card,.g2>.part+.part{margin-top:0}
   .g2>.card.full{margin-top:8px!important}
-  #cheer .wall{grid-column:2;margin-top:0;columns:2}
-  #cheer .wall-more{grid-column:2}
+  #cheer .wall{columns:4;column-gap:14px}
+  #cheer .memo{margin-bottom:14px}
   .fac-grid{margin-bottom:0;grid-template-columns:1fr;height:100%}
   .fac{justify-content:center;padding:26px 22px}
   .fac-grid{grid-template-columns:1fr 1fr}
@@ -480,7 +504,7 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
     <li><a href="#stats">참가 현황</a></li>
     <li><a href="#awards">수상자</a></li>
     <li><a href="#sponsors">찬조처</a></li>
-    <li><a href="#cheer">축하하기</a></li>
+    <li><a href="#cheer">한마디</a></li>
     <li><a href="#branches">연락처</a></li>
   </ul>
 </nav>
@@ -505,7 +529,7 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
   <a href="#board" class="hot"><span class="ic c-r"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9 16V8h3.5a2.5 2.5 0 0 1 0 5H9"/></svg></span>주차·화장실</a>
   <a href="#awards"><span class="ic c-o"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M8.5 13 7 21l5-3 5 3-1.5-8"/></svg></span>수상자</a>
   <a href="#sponsors"><span class="ic c-b"><svg viewBox="0 0 24 24"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 0 0-7.1 7.1L12 21.5l8.8-8.8a5 5 0 0 0 0-7.1z"/></svg></span>찬조처</a>
-  <a href="#cheer"><span class="ic c-g"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12z"/></svg></span>축하하기</a>
+  <a href="#cheer"><span class="ic c-g"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12z"/></svg></span>한마디 남기기</a>
   <a href="#branches"><span class="ic c-b"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>지회 연락처</a>
 </div>
 
@@ -850,38 +874,42 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
   </div>
 </section>
 
-<!-- ============ 10. 함께 축하해요 ============ -->
-<section class="sec tint g2" id="cheer">
+<!-- ============ 10. 한마디 담벼락 ============ -->
+<section class="sec tint" id="cheer">
   <div class="sec-head">
     <div class="bib">No.<em>10</em></div>
-    <h2>함께 축하해요</h2>
-    <p>직접 말하기 쑥스러우면 여기 남겨 주세요. 수상자에게도, 우리 지회에게도.</p>
+    <h2>우리들 한마디</h2>
+    <p>기대되는 것, 축하하고 싶은 사람, 당일 불편했던 점까지 편하게 적어 주세요.<br>불편한 점은 운영진이 확인하고 답을 달아 둘게요.</p>
   </div>
 
-  <div class="clap-box full">
+  <div class="clap-box">
     <button class="clap-btn" id="clapBtn" type="button" aria-label="박수 보내기">
       <svg viewBox="0 0 24 24"><path d="M11 12.5 6.6 8.1a1.5 1.5 0 0 1 2.1-2.1l4.6 4.6"/><path d="m9.4 9.5-2-2a1.5 1.5 0 0 1 2.1-2.1l4.4 4.4"/><path d="M13.3 10.6 11 8.3a1.5 1.5 0 0 1 2.1-2.1l4 4c2.3 2.3 2.3 6.1 0 8.4s-6.1 2.3-8.4 0L5.3 15.2a1.5 1.5 0 0 1 2.1-2.1l2.2 2.2"/><path d="M17.5 3.5 18.5 2M20.5 6.5 22 5.5M19.5 4.5l1.8-.8"/></svg>
     </button>
     <div><div class="cnt"><span id="clapCount">0</span>번</div><p>함께 보낸 박수. 누를 때마다 올라가요.</p></div>
   </div>
 
-  <div class="card">
-    <h3>축하 한마디</h3>
+  <div class="card composer">
     <div class="preview-note hide" id="previewNote">아직 구글 시트와 연결되지 않은 미리보기예요. 지금 쓰는 글은 이 화면에만 보입니다.</div>
     <form class="form" id="cheerForm" autocomplete="off">
+      <div class="cat-pick" id="catPick" role="radiogroup" aria-label="어떤 이야기인가요"></div>
+      <label class="to-row" id="toRow">누구에게 <span class="muted" style="font-weight:500">(없으면 비워 두세요)</span><input name="to" id="toInput" maxlength="20" placeholder="예) 영도구지회, 홍길동 선생님"></label>
+      <label>한마디<textarea name="text" id="msgInput" maxlength="200" required placeholder=""></textarea></label>
+      <div class="count"><span id="msgCount">0</span>/200</div>
       <div class="two">
         <label>보내는 사람<input name="name" maxlength="12" required placeholder="예) 해운대 김쌤"></label>
         <label>소속 지회<select name="branch" id="branchSelect"><option value="">선택 안 함</option></select></label>
       </div>
-      <label>받는 사람 <span class="muted" style="font-weight:500">(없으면 비워 두세요)</span><input name="to" id="toInput" maxlength="20" placeholder="예) 영도구지회, 홍길동 선생님"></label>
-      <label>메시지<textarea name="text" id="msgInput" maxlength="100" required placeholder="수상 축하드려요! 올해도 고생 많으셨습니다."></textarea></label>
-      <div class="count"><span id="msgCount">0</span>/100</div>
       <input class="hp" name="website" tabindex="-1" aria-hidden="true">
-      <button class="btn dark block" type="submit" id="cheerSubmit">남기기</button>
+      <button class="btn dark block" type="submit" id="cheerSubmit">붙이기</button>
       <p class="form-msg" id="formMsg" role="status"></p>
     </form>
   </div>
 
+  <div class="wall-bar">
+    <div class="tabs" id="wallChips"></div>
+    <div class="wall-sort" id="wallSort"><button type="button" data-sort="new" aria-pressed="true">최신순</button><button type="button" data-sort="like" aria-pressed="false">공감순</button></div>
+  </div>
   <div class="wall" id="wall"></div>
   <button class="btn block wall-more hide" id="wallMore" type="button">더 보기</button>
 </section>
@@ -949,7 +977,7 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
   <a href="#program"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>일정</a>
   <a href="#layout"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M12 5v14"/><circle cx="12" cy="12" r="2.5"/></svg>배치도</a>
   <a href="#board" class="hot"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9 16V8h3.5a2.5 2.5 0 0 1 0 5H9"/></svg><span>주차·화장실</span></a>
-  <a href="#cheer"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12z"/></svg>축하하기</a>
+  <a href="#cheer"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12z"/></svg>한마디</a>
 </nav></div>
 <div class="tip" id="tip"></div>
 
@@ -957,6 +985,8 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
 /* =====================================================================
    ✏️ 기본 설정
    ===================================================================== */
+/* 처음 열 때는 항상 맨 위 첫 화면부터 보여 줍니다 (카톡 브라우저가 예전 위치를 기억해도 무시) */
+try { if ("scrollRestoration" in history) history.scrollRestoration = "manual"; } catch(e){}
 const CONFIG = {
   EVENT_DATE: "2026-10-31",
   // 구글 앱스크립트 배포 주소 (Code.gs 배포 후 받은 주소를 붙여넣기). 비워 두면 '미리보기 모드'
@@ -1604,7 +1634,7 @@ function renderAwards(){
 $("#awardTabs").addEventListener("click", e => { const t = e.target.closest("[data-atab]"); if (!t) return; awardTab = t.dataset.atab; renderAwards(); });
 document.addEventListener("click", e => {
   const c = e.target.closest("[data-cheer]"); if (!c) return;
-  $("#toInput").value = c.dataset.cheer;
+  pickCat = "축하해요"; $("#toInput").value = c.dataset.cheer; renderPick();
   $("#cheer").scrollIntoView({ behavior:"smooth" });
   setTimeout(() => $("#msgInput").focus({ preventScroll:true }), 600);
 });
@@ -1628,40 +1658,79 @@ function renderSponsors(){
 }
 
 /* =====================================================================
-   축하 메시지 · 박수
+   한마디 담벼락 · 박수
    ===================================================================== */
-let wallLimit = 30;
+const MSG_CATS = [
+  { key:"기대돼요", color:"#4d9fd6", ph:"예) 랜덤플레이댄스 벌써 연습 중이에요. 우리 지회 꼭 이겨요!" },
+  { key:"축하해요", color:"#e0a100", ph:"예) 수상 축하드려요! 올해도 고생 많으셨습니다.", to:true },
+  { key:"응원해요", color:"#4e9c60", ph:"예) 영도구지회 올해도 우승 가자!", to:true },
+  { key:"불편해요", color:"#e05431", ph:"예) 화장실 가는 길 안내가 잘 안 보여요. (운영진이 확인하고 답을 달아요)" },
+  { key:"자유", color:"#8a909b", ph:"무엇이든 편하게 적어 주세요." },
+];
+let wallLimit = 30, wallCat = "전체", wallSort = "new";
+let pickCat = dayDiff(CONFIG.EVENT_DATE) > 0 ? "기대돼요" : "축하해요";
 const myIds = new Set(store.get("dk_mine") || []);
-function hashIdx(s){ let h = 0; for (const c of String(s)) h = (h * 31 + c.charCodeAt(0)) >>> 0; return h % 4; }
+const liked = new Set(store.get("dk_liked") || []);
 function ago(t){
   const d = new Date(t); if (isNaN(d)) return "";
   const s = (Date.now() - d) / 1000;
   if (s < 60) return "방금"; if (s < 3600) return Math.floor(s/60) + "분 전"; if (s < 86400) return Math.floor(s/3600) + "시간 전";
   return `${d.getMonth()+1}월 ${d.getDate()}일`;
 }
+const catOf = m => MSG_CATS.some(c => c.key === m.cat) ? m.cat : "자유";
+function renderPick(){
+  $("#catPick").innerHTML = MSG_CATS.map(c => `<button type="button" role="radio" aria-checked="${c.key===pickCat}" data-pick="${c.key}"><i style="background:${c.color}"></i>${c.key}</button>`).join("");
+  const c = MSG_CATS.find(x => x.key === pickCat);
+  $("#msgInput").placeholder = c.ph;
+  $("#toRow").classList.toggle("hide", !c.to && !$("#toInput").value);
+}
+$("#catPick").addEventListener("click", e => { const b = e.target.closest("[data-pick]"); if (!b) return; pickCat = b.dataset.pick; renderPick(); });
 function renderWall(){
-  const list = state.messages;
-  $("#wall").innerHTML = list.slice(0, wallLimit).map(m => `
-    <div class="memo m${hashIdx(m.name + m.text)}${myIds.has(m.id)?" mine":""}">
-      ${m.to ? `<span class="to">To. ${esc(m.to)}</span>` : ""}${esc(m.text)}
-      <span class="from">${esc(m.name)}${m.branch?` · ${esc(m.branch)}`:""} · ${ago(m.time)}</span>
-    </div>`).join("") || '<div class="empty" style="column-span:all">첫 번째 축하를 남겨 주세요.</div>';
+  const all = state.messages;
+  const counts = {}; all.forEach(m => counts[catOf(m)] = (counts[catOf(m)] || 0) + 1);
+  $("#wallChips").innerHTML = ["전체", ...MSG_CATS.map(c => c.key)].filter(k => k === "전체" || counts[k])
+    .map(k => `<button class="tab" type="button" data-wcat="${k}" aria-selected="${k===wallCat}">${k} ${k==="전체"?all.length:counts[k]}</button>`).join("");
+  let list = all.filter(m => wallCat === "전체" || catOf(m) === wallCat);
+  if (wallSort === "like") list = [...list].sort((a,b) => (b.likes||0) - (a.likes||0) || String(b.time).localeCompare(String(a.time)));
+  $("#wall").innerHTML = list.slice(0, wallLimit).map(m => {
+    const on = liked.has(m.id), cat = catOf(m);
+    return `<div class="memo c-${cat}${myIds.has(m.id)?" mine":""}">
+      <div class="top"><span class="ctag">${cat}</span><span>${ago(m.time)}</span></div>
+      ${m.to ? `<span class="to">To. ${esc(m.to)}</span>` : ""}
+      <div class="txt">${esc(m.text)}</div>
+      ${m.reply ? `<div class="reply"><b>운영진 답변</b>${esc(m.reply)}</div>` : ""}
+      <div class="foot"><span class="from">${esc(m.name)}${m.branch?` · ${esc(m.branch)}`:""}</span>
+      <button class="like${on?" on":""}" type="button" data-like="${esc(m.id)}" aria-label="공감 ${m.likes||0}"><svg viewBox="0 0 24 24"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 0 0-7.1 7.1L12 21.5l8.8-8.8a5 5 0 0 0 0-7.1z"/></svg>${m.likes||0}</button></div>
+    </div>`;
+  }).join("") || `<div class="empty" style="column-span:all">${wallCat==="전체" ? "첫 번째 한마디를 남겨 주세요." : "아직 이 주제의 글이 없어요."}</div>`;
   $("#wallMore").classList.toggle("hide", list.length <= wallLimit);
   $("#clapCount").textContent = fmt(state.claps + clapPending);
 }
+$("#wallChips").addEventListener("click", e => { const b = e.target.closest("[data-wcat]"); if (!b) return; wallCat = b.dataset.wcat; wallLimit = 30; renderWall(); });
+$("#wallSort").addEventListener("click", e => { const b = e.target.closest("[data-sort]"); if (!b) return; wallSort = b.dataset.sort; $("#wallSort").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); renderWall(); });
 $("#wallMore").addEventListener("click", () => { wallLimit += 30; renderWall(); });
+$("#wall").addEventListener("click", async e => {
+  const b = e.target.closest("[data-like]"); if (!b) return;
+  const id = b.dataset.like; if (liked.has(id)) return;
+  const m = state.messages.find(x => x.id === id); if (!m) return;
+  liked.add(id); store.set("dk_liked", [...liked]); m.likes = (m.likes || 0) + 1; renderWall();
+  if (CONFIG.API_URL && !String(id).startsWith("local")){
+    try { const r = await api({ action:"like", id }); if (r.ok && typeof r.likes === "number"){ m.likes = r.likes; renderWall(); } } catch(_){}
+  }
+});
 $("#branchSelect").innerHTML += BRANCHES.map(b => `<option>${b[0]}</option>`).join("") + "<option>가족</option><option>기타</option>";
 $("#msgInput").addEventListener("input", e => $("#msgCount").textContent = e.target.value.length);
+renderPick();
 
 $("#cheerForm").addEventListener("submit", async e => {
   e.preventDefault();
   const f = e.target, msg = $("#formMsg"), btn = $("#cheerSubmit");
-  const data = { name: f.name.value.trim(), branch: f.branch.value, to: f.to.value.trim(), text: f.text.value.trim(), website: f.website.value };
+  const data = { cat: pickCat, name: f.name.value.trim(), branch: f.branch.value, to: f.to.value.trim(), text: f.text.value.trim(), website: f.website.value };
   msg.className = "form-msg";
-  if (!data.name || !data.text){ msg.textContent = "이름과 메시지를 적어 주세요."; msg.classList.add("err"); return; }
+  if (!data.name || !data.text){ msg.textContent = "이름과 한마디를 적어 주세요."; msg.classList.add("err"); return; }
   const last = store.get("dk_last") || 0;
   if (Date.now() - last < 20000){ msg.textContent = "조금만 있다가 다시 남겨 주세요."; msg.classList.add("err"); return; }
-  btn.disabled = true; btn.textContent = "보내는 중…";
+  btn.disabled = true; btn.textContent = "붙이는 중…";
   try {
     let saved;
     if (CONFIG.API_URL){
@@ -1669,18 +1738,19 @@ $("#cheerForm").addEventListener("submit", async e => {
       if (!r.ok) throw new Error(r.error || "fail");
       saved = r.message;
     } else {
-      saved = { id: "local-" + Date.now(), time: new Date().toISOString(), ...data };
+      saved = { id: "local-" + Date.now(), time: new Date().toISOString(), likes:0, ...data };
     }
     myIds.add(saved.id); store.set("dk_mine", [...myIds]); store.set("dk_last", Date.now());
     state.messages = [saved, ...state.messages.filter(m => m.id !== saved.id)];
-    renderWall();
-    f.text.value = ""; f.to.value = ""; $("#msgCount").textContent = "0";
-    msg.textContent = "남겨 주셔서 고맙습니다!"; msg.classList.add("ok");
+    wallCat = "전체"; wallSort = "new"; renderWall();
+    f.text.value = ""; f.to.value = ""; $("#msgCount").textContent = "0"; renderPick();
+    msg.textContent = data.cat === "불편해요" ? "알려 주셔서 고맙습니다. 운영진이 확인할게요." : "붙였어요! 고맙습니다.";
+    msg.classList.add("ok");
     store.set("dk_name", { name: data.name, branch: data.branch });
   } catch(err){
-    msg.textContent = err.message && err.message !== "fail" && !/fetch|abort|network/i.test(err.message) ? err.message : "지금 사람이 많아서 잠시 늦어지고 있어요. 조금 뒤에 다시 눌러 주세요.";
+    msg.textContent = err.message && err.message !== "fail" && !/fetch|abort|network|json/i.test(err.message) ? err.message : "지금 사람이 많아서 잠시 늦어지고 있어요. 조금 뒤에 다시 눌러 주세요.";
     msg.classList.add("err");
-  } finally { btn.disabled = false; btn.textContent = "남기기"; }
+  } finally { btn.disabled = false; btn.textContent = "붙이기"; }
 });
 (function(){ const s = store.get("dk_name"); if (s){ $("#cheerForm").name.value = s.name || ""; $("#branchSelect").value = s.branch || ""; } })();
 
@@ -1821,6 +1891,18 @@ $("#branchList").innerHTML = BRANCHES.map(([n, head, org, mgr, tel]) => `
   }
   render();
 })();
+
+/* 메뉴를 눌러도 주소 뒤에 #이 붙지 않게 (공유·새로고침 때 항상 첫 화면부터 열리도록) */
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const h = a.getAttribute("href"); if (h === "#board" || h.length < 2) return;
+  const el = document.querySelector(h); if (!el) return;
+  e.preventDefault(); el.scrollIntoView({ behavior: "smooth" });
+});
+function goTopIfNoHash(){ if (!location.hash) window.scrollTo(0, 0); }
+goTopIfNoHash();
+window.addEventListener("load", () => setTimeout(goTopIfNoHash, 0));
+window.addEventListener("pageshow", ev => { if (ev.persisted) goTopIfNoHash(); });
 
 route();
 </script>
