@@ -243,6 +243,17 @@ details.more[open] summary::after{content:"접기"}
 .pc-steps p{margin:3px 0;font-size:15px;display:flex;gap:8px;align-items:center}
 .pc-steps i{flex:none;width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;font-style:normal;font-size:12.5px;font-weight:800;display:grid;place-items:center}
 @media (max-width:420px){.pc-time{border-right:0;padding-right:0}}
+/* 초청 가수 */
+.card.singer{display:grid;grid-template-columns:1fr;gap:16px;padding:0;overflow:hidden;background:#2c313b;color:#fff;border-color:#2c313b;box-shadow:0 4px 0 #1b1e25}
+.sg-photo{background:#1f232b}
+.sg-photo img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.sg-body{padding:0 20px 22px}
+.sg-label{display:inline-block;background:var(--orange);color:var(--ink);font-size:12.5px;font-weight:800;border-radius:6px;padding:2px 9px}
+.card .sg-name{font-family:var(--display);font-weight:400;font-size:44px;line-height:1.15;margin:8px 0 4px;color:#fff}
+.sg-time{margin:0 0 12px;font-size:14.5px;color:#d9dce2}
+.sg-time b{color:#f7c66b;margin-right:6px}
+.sg-desc{margin:0 0 8px;font-size:15.5px;line-height:1.75;color:#e7e9ee}
+@media (min-width:600px){.card.singer{grid-template-columns:260px 1fr;align-items:center}.sg-body{padding:22px 24px 22px 4px}.sg-photo img{height:100%;min-height:260px}}
 /* 배치도 */
 .map-img{display:block;border-radius:14px;overflow:hidden;border:1.5px solid var(--line)}
 .legend{display:grid;grid-template-columns:1fr;gap:8px;margin:14px 0 0;padding:0;list-style:none;font-size:14.5px}
@@ -555,6 +566,8 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
   .tabbar{display:none}
   footer{padding-bottom:36px}
   .board-in{max-width:880px}
+  .card.singer{grid-template-columns:340px 1fr;margin-top:18px}
+  .card .sg-name{font-size:56px}
   .prize-strip{margin:20px var(--pad) 0}
   .sec.prizes{margin-top:64px;padding-bottom:72px}
   .prize-grid{grid-template-columns:repeat(12,1fr);gap:16px}
@@ -809,7 +822,7 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
         <p>네 지회가 한 팀. 신호가 끝나기 전에 기둥에 볼풀공을 더 많이 넣는 팀이 이깁니다. 마지막 경기라 점수가 가장 커요.</p>
         <div class="meta"><span class="pill">팀당 40명 (남 20 · 여 20)</span><span class="pill s">1위 200점</span></div>
       </div></div>
-      <div class="game"><span class="n c-b">2</span><div><h4>축하공연</h4><p>13:30부터 20분. 공연팀은 곧 공개할게요.</p></div></div>
+      <div class="game"><span class="n c-b">2</span><div><h4>축하공연</h4><p>13:30부터 20분. 초청 가수 <b>백프로</b>의 무대가 이어져요.</p></div></div>
       <div class="game"><span class="n c-o">3</span><div>
         <h4>시상 및 경품추첨</h4>
         <p>하루 동안 모은 점수로 순위를 가립니다. 응원을 가장 열심히 한 지회에게는 응원상이 있어요.</p>
@@ -835,6 +848,18 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
       </div>
       <p class="note">한 팀으로 뛴 지회는 같은 점수를 받습니다.</p>
     </details>
+  </div>
+
+  <!-- ✏️ 초청 가수: 사진은 images/singer.jpg 로 올리면 자동으로 바뀌어요 -->
+  <div class="card full singer">
+    <div class="sg-photo"><img src="images/singer.jpg" alt="축하공연 초청 가수 백프로" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/singer-placeholder.svg'"></div>
+    <div class="sg-body">
+      <span class="sg-label">축하공연 초청 가수</span>
+      <h3 class="sg-name">백프로</h3>
+      <p class="sg-time"><b>13:30 ~ 13:50</b> 3부 화합의 장</p>
+      <p class="sg-desc">부산 무대를 누비는 가수 백프로가 다커서 운동회를 찾아옵니다.</p>
+      <p class="sg-desc">오전 내내 뛰고 당기느라 지친 몸, 노래 한 곡에 다시 풀어 보세요. 결승전 끝나고 시상식 들어가기 전, 운동장이 제일 뜨거워지는 20분입니다.</p>
+    </div>
   </div>
 </section>
 
