@@ -1944,7 +1944,8 @@ $("#cheerForm").addEventListener("submit", async e => {
   msg.className = "form-msg";
   if (!data.name || !data.text){ msg.textContent = "이름과 내용을 적어 주세요."; msg.classList.add("err"); return; }
   const last = store.get("dk_last") || 0;
-  if (Date.now() - last < 20000){ msg.textContent = "조금만 있다가 다시 남겨 주세요."; msg.classList.add("err"); return; }
+  const wait = Math.ceil((10000 - (Date.now() - last)) / 1000);
+  if (wait > 0){ msg.textContent = `같은 글이 여러 번 붙는 걸 막으려고 잠깐 쉬어 가요. ${wait}초 뒤에 다시 눌러 주세요.`; msg.classList.add("err"); return; }
   btn.disabled = true; btn.textContent = "붙이는 중…";
   try {
     let saved;
