@@ -137,6 +137,20 @@ button{font-family:inherit}
 .ac-ic svg{width:26px;height:26px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .ac-txt{flex:1;line-height:1.4}.ac-txt b{display:block;font-size:18px}.ac-txt small{font-size:13.5px;opacity:.9}
 .ac-go{font-size:30px;font-weight:300}
+.apply-box{max-width:640px}
+.apply-form{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end}
+.apply-form label{display:flex;flex-direction:column;gap:4px;font-size:13.5px;font-weight:700;color:var(--ink-2)}
+.apply-form input{font:inherit;font-size:17px;border:1.5px solid var(--line-2);border-radius:12px;padding:10px 12px;min-height:48px;width:100%;background:#fff;color:var(--ink)}
+.apply-form input:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
+.apply-form .btn{grid-column:1/-1;min-height:50px;font-size:16px}
+.ap-result{margin-top:14px;border-radius:14px;padding:16px;display:flex;gap:12px;align-items:flex-start;line-height:1.55}
+.ap-result .ic{flex:none;font-size:26px;line-height:1}
+.ap-result b{display:block;font-size:18px}
+.ap-result span{font-size:14.5px}
+.ap-result a{font-weight:800;color:inherit}
+.ap-ok{background:#e3f3e6;border:2px solid var(--green);color:#1f5a30}
+.ap-no{background:var(--track-soft);border:2px solid var(--track);color:#9a3216}
+.ap-wait{background:var(--sky-3);border:2px solid var(--line-2);color:var(--ink-2)}
 /* 찬조처 로고 */
 .thanks-title{text-align:center;font-family:var(--display);font-size:24px;margin:4px 0 16px}
 .logo-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
@@ -897,14 +911,17 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
   <div class="sec-head">
     <div class="bib">No.<em>06</em></div>
     <h2>참가신청 확인</h2>
-    <p>소속 지회를 통해 신청한 명단이에요. 내 이름이 잘 들어갔는지 확인해 보세요.</p>
+    <p>이름과 휴대폰 끝 4자리를 넣으면 신청이 잘 됐는지 바로 알려 드려요.</p>
   </div>
-  <a class="apply-card" href="https://docs.google.com/spreadsheets/d/1RUcfDGjUTm06zvuxVTIRKtYmj3TmdNnixW022VVaHVI/edit?usp=sharing" target="_blank" rel="noopener">
-    <span class="ac-ic"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg></span>
-    <span class="ac-txt"><b>참가신청 명단 열기</b><small>구글 시트가 새 창으로 열려요</small></span>
-    <span class="ac-go">›</span>
-  </a>
-  <p class="note">명단에 없거나 잘못된 부분이 있으면 소속 지회 사무국으로 문의해 주세요.</p>
+  <div class="card apply-box">
+    <form class="apply-form" id="applyForm" autocomplete="off">
+      <label>이름<input name="name" id="apName" maxlength="20" required placeholder="예) 홍길동"></label>
+      <label>휴대폰 끝 4자리<input name="p4" id="apP4" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" required placeholder="예) 1234"></label>
+      <button class="btn dark" type="submit" id="apBtn">조회하기</button>
+    </form>
+    <div class="ap-result hide" id="apResult" role="status"></div>
+    <p class="note" style="margin-top:10px">입력하신 정보는 조회에만 쓰이고 저장되지 않아요.</p>
+  </div>
 </section>
 
 <!-- ============ 8. 수상자 ============ -->
@@ -1352,6 +1369,35 @@ setTimeout(loadData, 300 + Math.random() * 3200);
 (function tick(){ setTimeout(() => { if (CONFIG.API_URL && document.visibilityState === "visible") loadData(true); tick(); }, 240000 + Math.random() * 60000); })();
 // 다른 앱 보다가 다시 돌아오면, 오래됐을 때만 새로 불러와요
 document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") loadData(false); });
+
+/* ---------- 참가신청 확인 ---------- */
+(function(){
+  const f = $("#applyForm"), box = $("#apResult"), btn = $("#apBtn");
+  let last = 0;
+  $("#apP4").addEventListener("input", e => { e.target.value = e.target.value.replace(/\D/g, "").slice(0, 4); });
+  function show(kind, html){ box.className = "ap-result ap-" + kind; box.innerHTML = html; }
+  f.addEventListener("submit", async e => {
+    e.preventDefault();
+    const name = $("#apName").value.replace(/\s/g, ""), p4 = $("#apP4").value;
+    if (!name || !/^\d{4}$/.test(p4)){ show("no", '<span class="ic">✍️</span><div><b>이름과 휴대폰 끝 4자리를 넣어 주세요.</b></div>'); return; }
+    if (Date.now() - last < 3000) return;
+    last = Date.now();
+    if (!CONFIG.API_URL){ show("wait", '<span class="ic">ℹ️</span><div><b>미리보기 화면이에요.</b><span>구글 시트와 연결되면 조회할 수 있어요.</span></div>'); return; }
+    btn.disabled = true; btn.textContent = "조회 중…"; show("wait", '<span class="ic">⏳</span><div><b>명단을 확인하고 있어요…</b></div>');
+    let r = null;
+    for (let i = 0; i < 2 && !r; i++){
+      try { const j = await api({ action:"check", name, p4 }); if (j && j.ok) r = j; } catch(_){}
+      if (!r) await sleep(1500 + Math.random() * 1500);
+    }
+    btn.disabled = false; btn.textContent = "조회하기";
+    if (!r){ show("wait", '<span class="ic">🙏</span><div><b>지금 접속이 많아요.</b><span>잠시 후 다시 눌러 주세요.</span></div>'); return; }
+    if (r.found){
+      show("ok", `<span class="ic">✅</span><div><b>참가신청이 완료되었어요!</b><span>${r.branch ? esc(r.branch) + " · " : ""}10월 31일 운동장에서 만나요.</span></div>`);
+    } else {
+      show("no", '<span class="ic">❗</span><div><b>조회가 안 됩니다.</b><span>이름과 번호를 다시 확인하시고, 그래도 안 되면 소속 지회로 문의해 주세요. <a href="#contact">지회 연락처 보기 ›</a></span></div>');
+    }
+  });
+})();
 
 /* ---------- 지회 연락처 ---------- */
 $("#branchList").innerHTML = BRANCHES.map(([n, head, org, mgr, tel]) => `
