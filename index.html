@@ -135,6 +135,9 @@ button{font-family:inherit}
 .bring small{font-size:13px;font-weight:800;color:var(--track)}
 .bring .bd{font-size:13.5px;color:var(--ink-2);line-height:1.5;margin-top:4px}
 @media (min-width:1024px){.bring .bi{font-size:52px}}
+.time-block{margin-top:14px}
+.tb-title{font-size:18px;margin:4px 2px 12px}
+.time-block .note{margin-top:4px}
 .timeline-mini{list-style:none;margin:0;padding:0}
 .timeline-mini li{display:grid;grid-template-columns:auto 40px 1fr;gap:8px;align-items:baseline;padding:9px 0;border-bottom:1px dashed var(--line)}
 .timeline-mini li:last-child{border-bottom:0}
@@ -659,8 +662,6 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
 <section class="sec g2 about" id="about">
   <div class="sec-head">
     <div class="bib">No.<em>01</em></div>
-    <h2>행사 안내</h2>
-    <p>지금 아니면 언제 뛰어!</p>
   </div>
   <div class="card">
     <h3>행사개요</h3>
@@ -684,48 +685,9 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
     </ol>
   </div>
 
-  <div class="card">
-    <h3>참여부스 안내 <span class="h-tag blue">10:00~12:30</span></h3>
-    <p class="muted small" style="margin:-4px 0 10px">에어바운스는 운동장 왼쪽 농구장, 나머지 부스는 운동장 오른쪽에 있어요.</p>
-    <ul class="booths">
-      <li><i>1</i><div><b>에어바운스</b><span>동반 자녀를 위한 에어바운스, 행사 종료 시까지 운영해요.</span></div></li>
-      <li><i>2</i><div><b>10초를 잡아라</b><span>정확히 10초에 스톱워치를 멈추는 게임! 기회는 1번, 다시 줄 서서 재도전할 수 있어요.</span></div></li>
-      <li><i>3</i><div><b>스피드 스틱잡기</b><span>무작위로 떨어지는 스틱을 빠르게 잡아요. 잡은 개수에 따라 상품을 드려요.</span></div></li>
-      <li><i>4</i><div><b>참참 링던지기</b><span>영도시니어클럽 참기름·참깨를 걸고 링을 던져요. 성공한 개수에 따라 상품 증정!</span></div></li>
-      <li><i>5</i><div><b>인생네컷</b><span>'다커서 운동회' 기념사진을 찍어 가세요.</span></div></li>
-      <li><i>6</i><div><b>청년위원회 '야르展 · 샤갈展'</b><span>현장의 닮고 싶은 선배와 닮고 싶지 않은 선배 미니 전시, 관람하고 참여해요.</span></div></li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h3>챙겨오세요 · 지켜주세요</h3>
-    <ul class="bring">
-      <li class="o"><span class="bi">🍜</span><b>라면 챙겨오기</b><small>1인 1개 이상</small><span class="bd">나누는 라면으로 푸드뱅크에 기부돼요!</span></li>
-      <li class="b"><span class="bi">👕👟</span><b>편한 옷, 편한 신발</b><span class="bd">운동회에 맞게 편하게 와 주세요.</span></li>
-      <li class="g"><span class="bi">🚇🚌</span><b>대중교통 이용</b><span class="bd">주차공간이 매우매우 협소합니다.</span></li>
-      <li class="r"><span class="bi">🚫</span><b>화기 및 취사금지</b><span class="bd">안전사고 예방을 위해 절대 금지됩니다.</span></li>
-    </ul>
-  </div>
-
-  <div class="card full note-card">
-    <h3>참고사항</h3>
-    <ul class="dot-list">
-      <li>참가자 전체 상해보험 가입 예정 <span class="muted">＊의료부스 별도 운영</span></li>
-      <li>동반 가족을 위한 에어바운스 등 놀거리 준비</li>
-      <li>깨끗한 행사를 위해 함께 노력해 주세요!</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ============ 3. 프로그램 ============ -->
-<section class="sec tint g2" id="program">
-  <div class="sec-head">
-    <div class="bib">No.<em>02</em></div>
-    <h2>프로그램</h2>
-    <p>아침엔 조금 어색해도, 점심 먹고 나면 다 친구입니다.</p>
-  </div>
-
-  <div class="parts full">
+  <div class="full time-block">
+    <h3 class="tb-title">행사 시간대별 내용</h3>
+    <div class="parts">
   <div class="part p0">
     <div class="part-h"><b>접수</b><span>8:00 ~ 8:50</span></div>
     <ul class="tt"><li><span class="t">8:00~8:50</span><span class="w">참가자 접수 · 나눔 행사 '나누는 라면'</span></li></ul>
@@ -758,10 +720,40 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
     </ul>
   </div>
   </div>
-  <p class="note full">세부 일정과 내용은 현장 상황에 따라 바뀔 수 있습니다.</p>
+    <p class="note">세부 일정과 내용은 현장 상황에 따라 바뀔 수 있습니다.</p>
+  </div>
+
+  <div class="card">
+    <h3>챙겨오세요 · 지켜주세요</h3>
+    <ul class="bring">
+      <li class="o"><span class="bi">🍜</span><b>라면 챙겨오기</b><small>1인 1개 이상</small><span class="bd">나누는 라면으로 푸드뱅크에 기부돼요!</span></li>
+      <li class="b"><span class="bi">👕👟</span><b>편한 옷, 편한 신발</b><span class="bd">운동회에 맞게 편하게 와 주세요.</span></li>
+      <li class="g"><span class="bi">🚇🚌</span><b>대중교통 이용</b><span class="bd">주차공간이 매우매우 협소합니다.</span></li>
+      <li class="r"><span class="bi">🚫</span><b>화기 및 취사금지</b><span class="bd">안전사고 예방을 위해 절대 금지됩니다.</span></li>
+    </ul>
+  </div>
+
+  <div class="card note-card">
+    <h3>참고사항</h3>
+    <ul class="dot-list">
+      <li>참가자 전체 상해보험 가입 예정 <span class="muted">＊의료부스 별도 운영</span></li>
+      <li>동반 가족을 위한 에어바운스 등 놀거리 준비</li>
+      <li>깨끗한 행사를 위해 함께 노력해 주세요!</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 3. 프로그램 ============ -->
+<section class="sec tint g2" id="program">
+  <div class="sec-head">
+    <div class="bib">No.<em>02</em></div>
+    <h2>프로그램</h2>
+    <p>아침엔 조금 어색해도, 점심 먹고 나면 다 친구입니다.</p>
+  </div>
+
 
   <!-- 종목 소개 -->
-  <div class="card full" style="margin-top:22px">
+  <div class="card full">
     <h3>무슨 경기를 하나요?</h3>
     <div class="tabs" role="tablist" id="progTabs">
       <button class="tab" role="tab" aria-selected="true" data-panel="pg1">지회대항전</button>
@@ -835,6 +827,19 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
       </div>
       <p class="note">한 팀으로 뛴 지회는 같은 점수를 받습니다.</p>
     </details>
+  </div>
+
+  <div class="card full">
+    <h3>참여부스 안내 <span class="h-tag blue">10:00~12:30</span></h3>
+    <p class="muted small" style="margin:-4px 0 10px">에어바운스는 운동장 왼쪽 농구장, 나머지 부스는 운동장 오른쪽에 있어요.</p>
+    <ul class="booths">
+      <li><i>1</i><div><b>에어바운스</b><span>동반 자녀를 위한 에어바운스, 행사 종료 시까지 운영해요.</span></div></li>
+      <li><i>2</i><div><b>10초를 잡아라</b><span>정확히 10초에 스톱워치를 멈추는 게임! 기회는 1번, 다시 줄 서서 재도전할 수 있어요.</span></div></li>
+      <li><i>3</i><div><b>스피드 스틱잡기</b><span>무작위로 떨어지는 스틱을 빠르게 잡아요. 잡은 개수에 따라 상품을 드려요.</span></div></li>
+      <li><i>4</i><div><b>참참 링던지기</b><span>영도시니어클럽 참기름·참깨를 걸고 링을 던져요. 성공한 개수에 따라 상품 증정!</span></div></li>
+      <li><i>5</i><div><b>인생네컷</b><span>'다커서 운동회' 기념사진을 찍어 가세요.</span></div></li>
+      <li><i>6</i><div><b>청년위원회 '야르展 · 샤갈展'</b><span>현장의 닮고 싶은 선배와 닮고 싶지 않은 선배 미니 전시, 관람하고 참여해요.</span></div></li>
+    </ul>
   </div>
 
 </section>
