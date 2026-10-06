@@ -102,10 +102,58 @@ button{font-family:inherit}
 .note{font-size:13.5px;color:var(--ink-3);margin:12px 2px 0}
 .ph{color:#b0561f;background:#fff4e8;border-radius:4px;padding:0 3px}
 
+/* 첫 화면: 로고 + 가운데 정렬 */
+.hero{padding-bottom:28px}
+.hero-info{text-align:center}
+/* 행사 안내 */
+.sub-inline{display:inline-block;font-size:13px;font-weight:700;color:var(--track);margin-left:4px}
+.rain-line{margin:12px 0 0;padding-top:10px;border-top:1px dashed var(--line-2);font-weight:800;color:#c23f1f}
+.h-tag{display:inline-block;vertical-align:2px;margin-left:6px;font-size:12.5px;font-weight:800;color:#fff;background:var(--track);border-radius:6px;padding:2px 8px}
+.steps li span{display:block}
+.steps.emo li{padding-left:52px}
+.steps.emo b i{font-style:normal;margin-right:6px}
+.h-tag.blue{background:var(--blue)}
+.booths{list-style:none;margin:0;padding:0}
+.booths li{display:flex;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.booths li:last-child{border-bottom:0;padding-bottom:0}
+.booths i{flex:none;width:28px;height:28px;border-radius:8px;background:var(--blue-soft);color:#2677ad;font-style:normal;font-family:var(--display);font-size:16px;display:grid;place-items:center;margin-top:1px}
+.booths b{display:block;font-size:16px}
+.booths span{display:block;font-size:14.5px;color:var(--ink-2);line-height:1.55}
+.timeline-mini{list-style:none;margin:0;padding:0}
+.timeline-mini li{display:grid;grid-template-columns:auto 40px 1fr;gap:8px;align-items:baseline;padding:9px 0;border-bottom:1px dashed var(--line)}
+.timeline-mini li:last-child{border-bottom:0}
+.tm{font-weight:700;font-size:13.5px;white-space:nowrap;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.tp{font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:1px 0;text-align:center}
+.tp.t0{background:#7b8390}.tp.t1{background:var(--blue)}.tp.t2{background:var(--green)}.tp.t3{background:var(--orange)}
+.tw{font-size:14.5px;font-weight:600;line-height:1.5}
+.more-link{display:inline-block;margin-top:10px;font-weight:800;color:var(--track);text-decoration:none}
+.dot-list{margin:0;padding-left:20px}
+.dot-list li{margin:6px 0;line-height:1.6}
+.dot-list li::marker{color:var(--track)}
+.dot-list b{margin-right:6px}
+/* 참가신청 확인 */
+.apply-card{display:flex;align-items:center;gap:14px;padding:18px 20px;border-radius:var(--r);background:var(--green);color:#fff;text-decoration:none;box-shadow:0 4px 0 #36744a;max-width:640px}
+.ac-ic{flex:none;width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.2);display:grid;place-items:center}
+.ac-ic svg{width:26px;height:26px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.ac-txt{flex:1;line-height:1.4}.ac-txt b{display:block;font-size:18px}.ac-txt small{font-size:13.5px;opacity:.9}
+.ac-go{font-size:30px;font-weight:300}
+/* 찬조처 로고 */
+.thanks-title{text-align:center;font-family:var(--display);font-size:24px;margin:4px 0 16px}
+.logo-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.logo-grid li{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:10px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.logo-grid img{width:100%;max-width:180px;aspect-ratio:3/1;object-fit:contain}
+.logo-grid span{font-size:13px;color:var(--ink-2);font-weight:600;text-align:center}
+@media (min-width:600px){.logo-grid{grid-template-columns:repeat(4,1fr)}}
+/* 행사 문의 */
+.q-title{font-size:18px}
+.hq-line{margin:0;font-size:16.5px;font-weight:600}
+.hq-line a{color:var(--ink);font-weight:800;text-decoration:none;white-space:nowrap}
 /* 첫 마음 */
 .intro{padding:40px 24px 8px;text-align:center}
 .intro p{font-size:17px;line-height:1.9;margin:0 0 14px;color:#3d4250}
-.intro .big{font-family:var(--display);font-size:24px;line-height:1.45;color:var(--ink);margin-bottom:18px}
+.intro .big{font-family:var(--display);font-size:30px;line-height:1.35;color:var(--ink);margin-bottom:20px}
+.intro-kicker{font-weight:700;color:var(--ink-2);margin-bottom:2px!important;font-size:15px!important}
+.intro-end b{display:inline-block;margin-top:6px;font-family:var(--display);font-weight:400;font-size:24px;color:var(--track);letter-spacing:.02em}
 .intro .big span{color:var(--track)}
 
 /* 인사말 */
@@ -115,7 +163,7 @@ button{font-family:inherit}
 .letter .sign small{display:block;color:var(--ink-2);font-size:14px}
 .letter .sign b{font-size:19px}
 
-.hq-note{margin:16px 0 0;padding:16px 18px;border-radius:14px;background:var(--track-soft);border:2px solid var(--track);color:#c23f1f;font-size:18px;font-weight:700;line-height:1.6}
+.hq-note{margin:14px 0 0;padding:14px 16px;border-radius:14px;background:var(--track-soft);border:2px solid var(--track);color:#c23f1f;font-size:17px;font-weight:800;line-height:1.6}
 .hq-note b{display:block;margin-top:4px;font-size:20px;font-weight:800;line-height:1.5}
 @media (min-width:1024px){.hq-note{font-size:20px;padding:18px 22px}.hq-note b{font-size:23px}}
 /* 회장 사진 */
@@ -167,9 +215,9 @@ button{font-family:inherit}
 .tabs::-webkit-scrollbar{display:none}
 .tab{flex:none;border:1.5px solid var(--line-2);background:#fff;color:var(--ink-2);border-radius:999px;padding:8px 16px;font-size:15px;font-weight:700;cursor:pointer;min-height:42px}
 .tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
-.card .tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 16px;padding:0;overflow:visible}
+.card .tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 16px;padding:0;overflow:visible}
 .card .tabs .tab{width:100%;padding:8px 6px;white-space:nowrap}
-@media (min-width:600px){.card .tabs{grid-template-columns:repeat(4,1fr)}}
+@media (min-width:600px){.card .tabs{grid-template-columns:repeat(3,1fr)}}
 .game{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:16px 0;border-bottom:1px dashed var(--line)}
 .game:first-of-type{padding-top:4px}
 .game:last-child{border-bottom:0;padding-bottom:0}
@@ -199,61 +247,6 @@ details.more summary::-webkit-details-marker{display:none}
 details.more summary::after{content:"펼치기";font-size:13px;color:var(--ink-3);font-weight:600}
 details.more[open] summary::after{content:"접기"}
 
-/* 경품 */
-.nav a.gift{color:#b86f00}
-.prize-strip{display:flex;align-items:center;gap:12px;margin:16px 16px 0;padding:12px 14px;border-radius:16px;text-decoration:none;color:#fff;background:linear-gradient(100deg,#2c313b 0%,#3b3350 100%);box-shadow:0 4px 0 #1b1e25;position:relative;overflow:hidden}
-.prize-strip::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 20%,rgba(242,160,26,.45) 0 3px,transparent 4px),radial-gradient(circle at 70% 80%,rgba(77,159,214,.5) 0 3px,transparent 4px),radial-gradient(circle at 88% 25%,rgba(224,84,49,.55) 0 3px,transparent 4px),radial-gradient(circle at 45% 12%,rgba(78,156,96,.5) 0 2px,transparent 3px);pointer-events:none}
-.ps-imgs{flex:none;display:flex}
-.ps-imgs img{width:36px;height:36px;object-fit:cover;border-radius:50%;border:2px solid #fff;background:#fffbeb;margin-left:-10px}
-.ps-imgs img:first-child{margin-left:0}
-.ps-txt{flex:1;min-width:0;line-height:1.35}
-.ps-txt small{display:block;font-size:12.5px;color:#f7c66b;font-weight:700}
-.ps-txt b{font-size:15px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ps-go{flex:none;font-family:var(--display);font-size:15px;white-space:nowrap;background:var(--orange);color:var(--ink);border-radius:999px;padding:6px 12px;position:relative;z-index:1}
-.sec.prizes{background:#2c313b;color:#fff;margin-top:40px;padding-bottom:44px;position:relative;overflow:hidden}
-.sec.prizes::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.9;background:
-  radial-gradient(circle at 96% 3%,#f2a01a 0 4px,transparent 5px),radial-gradient(circle at 88% 7%,#4d9fd6 0 3px,transparent 4px),
-  radial-gradient(circle at 78% 2.5%,#e05431 0 5px,transparent 6px),radial-gradient(circle at 93% 12%,#4e9c60 0 3px,transparent 4px),
-  radial-gradient(circle at 70% 6%,#fff 0 2px,transparent 3px),radial-gradient(circle at 3% 2%,#f2a01a 0 3px,transparent 4px),
-  radial-gradient(circle at 97% 20%,#e05431 0 3px,transparent 4px)}
-.sec.prizes>*{position:relative}
-.sec.prizes .sec-head h2{font-size:34px}
-.sec.prizes .sec-head p{color:#d9dce2;font-size:17px}
-.sec.prizes .bib{background:var(--orange);border-color:#fff;color:var(--ink)}
-.prize-note{background:rgba(255,255,255,.08);border:1.5px dashed rgba(255,255,255,.35);border-radius:14px;padding:12px 14px;font-size:14.5px;color:#e7e9ee;line-height:1.6;margin-bottom:16px}
-.prize-note b{display:inline-block;background:var(--orange);color:var(--ink);border-radius:6px;padding:1px 8px;margin-right:6px;font-size:13px}
-.prize-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.prize-card{position:relative;background:#fffbeb;border-radius:16px;padding:12px 10px 12px;text-align:center;color:var(--ink);box-shadow:0 4px 0 rgba(0,0,0,.35);display:flex;flex-direction:column;align-items:center}
-.prize-card img{width:100%;max-width:220px;aspect-ratio:1/1;object-fit:contain;margin:4px auto 6px}
-.prize-card b{font-size:15px;line-height:1.35}
-.prize-card small{font-size:12px;color:var(--ink-3);margin-top:2px}
-.prize-card.big{grid-column:span 2;padding:16px 12px 16px}
-.prize-card.big img{max-width:260px}
-.prize-card.big b{font-family:var(--display);font-weight:400;font-size:24px}
-.prize-card.big.b2{grid-column:span 1;padding:14px 10px}
-.prize-card.big.b2 b{font-size:19px}
-.prize-card.big img{max-width:220px}
-.p-rank{position:absolute;top:10px;left:10px;background:var(--track);color:#fff;font-size:12px;font-weight:800;border-radius:6px;padding:2px 8px}
-.prize-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:18px;background:var(--orange);color:var(--ink);border-radius:18px;padding:16px 18px;box-shadow:0 4px 0 #b77508}
-.pc-time{flex:none;display:flex;flex-direction:column;line-height:1.2;padding-right:14px;border-right:2px dashed rgba(44,49,59,.35)}
-.pc-time span{font-size:13px;font-weight:800}
-.pc-time b{font-family:var(--display);font-weight:400;font-size:28px}
-.pc-time small{font-size:12.5px;font-weight:700}
-.pc-steps{flex:1;min-width:200px}
-.pc-steps p{margin:3px 0;font-size:15px;display:flex;gap:8px;align-items:center}
-.pc-steps i{flex:none;width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;font-style:normal;font-size:12.5px;font-weight:800;display:grid;place-items:center}
-@media (max-width:420px){.pc-time{border-right:0;padding-right:0}}
-/* 초청 가수 */
-.card.singer{display:grid;grid-template-columns:1fr;gap:16px;padding:0;overflow:hidden;background:#2c313b;color:#fff;border-color:#2c313b;box-shadow:0 4px 0 #1b1e25}
-.sg-photo{background:#1f232b}
-.sg-photo img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
-.sg-body{padding:0 20px 22px}
-.sg-label{display:inline-block;background:var(--orange);color:var(--ink);font-size:12.5px;font-weight:800;border-radius:6px;padding:2px 9px}
-.card .sg-name{font-family:var(--display);font-weight:400;font-size:44px;line-height:1.15;margin:8px 0 4px;color:#fff}
-.sg-time{margin:0 0 12px;font-size:14.5px;color:#d9dce2}
-.sg-time b{color:#f7c66b;margin-right:6px}
-.sg-desc{margin:0 0 8px;font-size:15.5px;line-height:1.75;color:#e7e9ee}
-@media (min-width:600px){.card.singer{grid-template-columns:260px 1fr;align-items:center}.sg-body{padding:22px 24px 22px 4px}.sg-photo img{height:100%;min-height:260px}}
 /* 배치도 */
 .map-img{display:block;border-radius:14px;overflow:hidden;border:1.5px solid var(--line)}
 .legend{display:grid;grid-template-columns:1fr;gap:8px;margin:14px 0 0;padding:0;list-style:none;font-size:14.5px}
@@ -513,7 +506,7 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
 .tabbar a.hot span{background:var(--track);color:#fff;border-radius:999px;padding:0 7px}
 
 @media (max-width:360px){.quick a{font-size:12px}.tt li{grid-template-columns:92px 1fr}.checks,.awardees{grid-template-columns:1fr}.wall{columns:1}}
-@media (min-width:600px){.prize-grid{grid-template-columns:repeat(3,1fr)}.prize-card.big{grid-column:span 1}.charts{grid-template-columns:1fr 1fr}.charts .wide{grid-column:1/-1}.awardees{grid-template-columns:1fr 1fr 1fr}.wall{columns:3}.sec{padding-left:32px;padding-right:32px}.tabs{margin:0 -32px 14px;padding:2px 32px 4px}.card .tabs{margin:0 0 16px;padding:0}}
+@media (min-width:600px){.charts{grid-template-columns:1fr 1fr}.charts .wide{grid-column:1/-1}.awardees{grid-template-columns:1fr 1fr 1fr}.wall{columns:3}.sec{padding-left:32px;padding-right:32px}.tabs{margin:0 -32px 14px;padding:2px 32px 4px}.card .tabs{margin:0 0 16px;padding:0}}
 /* ---------- PC 화면 (가로 1024px 이상) ---------- */
 @media (min-width:1024px){
   :root{--pad:max(56px, calc((100vw - 1240px) / 2))}
@@ -523,12 +516,10 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
   .notice-bar{padding:10px var(--pad)}
   .nav ul{justify-content:center;padding:0 24px}
   .nav a{padding:15px 14px 13px}
-  .hero{display:grid;grid-template-columns:1.25fr 1fr;align-items:center;column-gap:8px;padding:28px var(--pad) 0}
-  .hero-title{grid-row:1;grid-column:1;max-width:none}
-  .hero-info{grid-row:1;grid-column:2;text-align:left;padding:0 0 20px}
+  .hero{padding:28px var(--pad) 36px}
+  .hero-title{max-width:640px}
   .hero-date{font-size:30px;line-height:1.35}.hero-place{font-size:24px;margin-top:6px}
-  .dday{margin-top:22px;font-size:26px}
-  .hero-track{grid-row:2;grid-column:1/-1;margin:0 calc(-1 * var(--pad));width:calc(100% + 2 * var(--pad));max-width:none}
+  .dday{margin-top:20px;font-size:26px}
   .quick{grid-template-columns:repeat(8,1fr);gap:12px;padding:28px var(--pad) 4px}
   .quick a{font-size:14px;padding:16px 4px 14px}
   .intro{padding:64px var(--pad) 8px}.intro .big{font-size:32px}.intro p{font-size:18px}
@@ -545,8 +536,6 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
   .g2>.sec-head,.g2>.full{grid-column:1/-1}
   .g2>.card+.card,.g2>.part+.part{margin-top:0}
   .g2>.card.full{margin-top:8px!important}
-  #cheer .wall{columns:4;column-gap:14px}
-  #cheer .memo{margin-bottom:14px}
   .fac-grid{margin-bottom:0;grid-template-columns:1fr;height:100%}
   .fac{justify-content:center;padding:26px 22px}
   .fac-grid{grid-template-columns:1fr 1fr}
@@ -568,12 +557,6 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
   .board-in{max-width:880px}
   .card.singer{grid-template-columns:340px 1fr;margin-top:18px}
   .card .sg-name{font-size:56px}
-  .prize-strip{margin:20px var(--pad) 0}
-  .sec.prizes{margin-top:64px;padding-bottom:72px}
-  .prize-grid{grid-template-columns:repeat(12,1fr);gap:16px}
-  .prize-card{grid-column:span 3}
-  .prize-card.big{grid-column:span 4}
-  .prize-card.big img{max-width:300px}
   .site-card .sitemap{max-width:980px}
   .lm-box{aspect-ratio:16/10}
 }
@@ -595,18 +578,15 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
 <!-- ============ 상단 메뉴 ============ -->
 <nav class="nav" aria-label="바로가기">
   <ul>
-    <li><a href="#greeting">인사말</a></li>
     <li><a href="#about">행사 안내</a></li>
     <li><a href="#program">프로그램</a></li>
-    <li><a href="#prizes" class="gift">경품</a></li>
     <li><a href="#layout">배치도</a></li>
     <li><a href="#location">오시는 길</a></li>
     <li><a href="#facility" class="hot">주차·화장실</a></li>
-    <li><a href="#stats">참가 현황</a></li>
+    <li><a href="#apply">참가신청 확인</a></li>
     <li><a href="#awards">수상자</a></li>
     <li><a href="#sponsors">찬조처</a></li>
-    <li><a href="#cheer">소통방</a></li>
-    <li><a href="#branches">연락처</a></li>
+    <li><a href="#contact">행사 문의</a></li>
   </ul>
 </nav>
 
@@ -619,7 +599,6 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
     <p class="hero-place">부산가톨릭대학교 신학대학 운동장</p>
     <div class="dday hide" id="dday"></div>
   </div>
-  <img class="hero-track" src="images/hero-track.jpg" alt="">
 </header>
 
 <!-- ============ 빠른 메뉴 ============ -->
@@ -630,99 +609,86 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
   <a href="#board" class="hot"><span class="ic c-r"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9 16V8h3.5a2.5 2.5 0 0 1 0 5H9"/></svg></span>주차·화장실</a>
   <a href="#awards"><span class="ic c-o"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M8.5 13 7 21l5-3 5 3-1.5-8"/></svg></span>수상자</a>
   <a href="#sponsors"><span class="ic c-b"><svg viewBox="0 0 24 24"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 0 0-7.1 7.1L12 21.5l8.8-8.8a5 5 0 0 0 0-7.1z"/></svg></span>찬조처</a>
-  <a href="#cheer"><span class="ic c-g"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12z"/></svg></span>소통방</a>
-  <a href="#branches"><span class="ic c-b"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>지회 연락처</a>
+  <a href="#apply"><span class="ic c-g"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg></span>참가신청 확인</a>
+  <a href="#contact"><span class="ic c-b"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>행사 문의</a>
 </div>
-
-<!-- ============ 경품 띠 배너 ============ -->
-<a class="prize-strip" href="#prizes">
-  <span class="ps-imgs"><img src="images/prizes/standbyme.jpg" alt=""><img src="images/prizes/dyson.jpg" alt=""><img src="images/prizes/minix.jpg" alt=""></span>
-  <span class="ps-txt"><small>작년 경품 미리보기</small><b>스탠바이미 · 다이슨 외</b></span>
-  <span class="ps-go">경품 보기 ›</span>
-</a>
 
 <!-- ============ 첫 마음 ============ -->
-<!-- ✏️ 문구를 바꾸고 싶으면 <p> 안의 글만 고치세요 -->
 <div class="intro">
-  <p class="big">다 커서 하는 운동회,<br><span>생각보다 재밌습니다.</span></p>
-  <p>매일 남의 하루를 먼저 챙기느라<br>내 몸 챙길 틈은 없으셨죠.</p>
-  <p>10월의 마지막 토요일,<br>이날만큼은 서류 말고 바통을 잡아 보세요.</p>
-  <p>"가기 싫었는데, 가보니 재밌더라."<br>돌아가는 길에 그 말 한마디 나오면<br>저희는 그걸로 됐습니다.</p>
+  <p class="intro-kicker">2026년 부산 사회복지사대회</p>
+  <p class="big">✨ 다커서 운동회 ✨</p>
+  <p>마지막으로 뛰었던 기억이 언제지,,?<br>'지각할 거 같을 때?', '초록불 신호 몇 초 안 남았을 때?'</p>
+  <p>어린 시절 운동회의 기억을 살려<br>본격적으로 뛰어 보는 시간,<br>우리 협회에서 판 깔아 드립니다!</p>
+  <p>👶 다 커서 사회복지사가 된 우리 🧑<br>이날 함께 즐겁게 뛰어 봐요!</p>
+  <p class="intro-end">가기 싫지만 오면 재밌는 체육대회!<br><b>COMING SOON 🏃‍♂️💨</b></p>
 </div>
 
-<!-- ============ 1. 인사말 ============ -->
-<!-- ✏️ 회장님 인사말 초안입니다. 꼭 확인받고 고쳐 주세요 -->
-<section class="sec" id="greeting">
+<!-- ============ 행사 안내 ============ -->
+<section class="sec g2 about" id="about">
   <div class="sec-head">
     <div class="bib">No.<em>01</em></div>
-    <h2>인사말</h2>
-  </div>
-  <div class="greet-wrap">
-  <figure class="pres">
-    <div class="pres-bg"><img loading="lazy" decoding="async" src="images/president.png" alt="부산광역시사회복지사협회 윤해복 회장" width="560" height="631"></div>
-    <figcaption><small>부산광역시사회복지사협회</small><b>회장 윤해복</b></figcaption>
-  </figure>
-  <div class="letter">
-    <p>부산의 사회복지사 여러분, 반갑습니다.</p>
-    <p>토요일 아침 여덟 시까지 운동장에 와 달라는 말씀을 드리기가 솔직히 쉽지 않았습니다. 한 주 내내 현장을 지키고 겨우 맞은 주말이니까요.</p>
-    <p>그래서 올해 대회 이름을 '다커서 운동회'로 지었습니다. 어릴 적 운동회 날 아침처럼, 다 커서도 한 번쯤은 괜히 설레어도 괜찮지 않을까 싶었습니다.</p>
-    <p>이날만큼은 직함도 경력도 잠시 내려놓으셨으면 합니다. 옆 지회 선생님과 같이 줄을 당기고, 처음 본 동료와 커다란 천을 함께 들어 올리다 보면 우리가 같은 일을 하는 사람들이라는 게 새삼 든든하게 느껴지실 겁니다.</p>
-    <p>함께 준비해 주신 16개 구·군지회, 그리고 찬조로 마음을 보태 주신 모든 분께 깊이 감사드립니다.</p>
-    <p>10월 31일, 운동장에서 뵙겠습니다.</p>
-    <p class="sign"><small>2026년 10월</small><small>부산광역시사회복지사협회</small><b>회장 윤해복</b></p>
-  </div>
-  </div>
-</section>
-
-<!-- ============ 2. 행사 안내 ============ -->
-<section class="sec g2" id="about">
-  <div class="sec-head">
-    <div class="bib">No.<em>02</em></div>
     <h2>행사 안내</h2>
     <p>지금 아니면 언제 뛰어!</p>
   </div>
   <div class="card">
+    <h3>행사개요</h3>
     <table class="facts">
-      <tr><th>행사명</th><td>2026년 부산 사회복지사대회<br>「다커서 운동회」</td></tr>
-      <tr><th>일시</th><td>2026. 10. 31.(토) 9:00~14:30<br><span class="muted small">접수는 8:00부터</span></td></tr>
-      <tr><th>장소</th><td>부산가톨릭대학교 신학대학 운동장<br><span class="muted small">부산 금정구 기찰로102번길 56-7</span></td></tr>
-      <tr><th>참가</th><td>부산 사회복지시설·기관 사회복지사 및 가족 1,000여 명</td></tr>
+      <tr><th>행사명</th><td>2026년 부산 사회복지사대회 「다커서 운동회」</td></tr>
+      <tr><th>일시</th><td>2026. 10. 31.(토) 9:00~14:30 <span class="sub-inline">*접수시작 8:00</span></td></tr>
+      <tr><th>장소</th><td>부산가톨릭대학교 신학대학 운동장<br><span class="muted small">(부산 금정구 기찰로102번길 56-7)</span></td></tr>
+      <tr><th>참가자</th><td>부산 사회복지시설·기관 사회복지사 및 가족</td></tr>
       <tr><th>주최·주관</th><td>부산광역시사회복지사협회 · 16개 구(군)지회</td></tr>
-      <tr><th>참가비</th><td>없음</td></tr>
     </table>
+    <p class="rain-line">※ 우천시 취소</p>
   </div>
 
   <div class="card">
-    <h3>도착하면 이렇게</h3>
+    <h3>도착하면 이렇게 <span class="h-tag">접수처가 따로 없어요!</span></h3>
     <ol class="steps">
-      <li><b>8시 30분까지 도착</b><span>접수는 8시부터 시작해요. 8시 50분에 지회별로 선수단이 줄을 섭니다.</span></li>
-      <li><b>입구에서 라면 한 봉 기부</b><span>'나누는 라면' 나눔 행사예요. 봉지라면, 컵라면 모두 좋아요. 모인 라면은 푸드뱅크에 기부합니다. 따로 접수 절차는 없어요.</span></li>
-      <li><b>우리 지회 자리로</b><span>지회 캐노피(천막)로 가시면 됩니다. 위치는 <a href="#layout">배치도</a>에서 확인하세요.</span></li>
-      <li><b>스탭에게 팔찌 받기</b><span>팔찌를 받아야 경품 추첨에 들어가요. 10시 이후에 도착하셨다면 본부에서 받아 주세요.</span></li>
+      <li><b>8시 30분까지 도착하기</b><span>접수는 8시부터 진행돼요.</span></li>
+      <li><b>운동장 입구에서 '나누는 라면' 참여</b><span>1인당 1개 이상, 봉지라면·컵라면 모두 괜찮아요!</span><span>모인 라면은 푸드뱅크에 기부됩니다.</span></li>
+      <li><b>소속지회 자리 찾아가기</b><span>우리 지회를 찾아 자유롭게 착석해요. 위치는 <a href="#layout">배치도</a>를 참고해 주세요!</span></li>
+      <li><b>스탭에게 팔찌 받기</b><span>소속지회에 있는 스탭에게 팔찌를 받아 주세요.</span><span>팔찌의 행운번호로 경품추첨을 진행하니 꼭 챙겨 주세요!</span></li>
     </ol>
   </div>
 
   <div class="card">
-    <h3>챙겨 오세요 · 지켜 주세요</h3>
-    <div class="checks">
-      <div class="check o"><b>라면 1봉 이상</b>나누는 라면 기부용</div>
-      <div class="check b"><b>편한 옷, 운동화</b>뛰고, 당기고, 춤춥니다</div>
-      <div class="check g"><b>대중교통 이용</b>주차 공간이 좁아요</div>
-      <div class="check r"><b>화기·전기 사용 금지</b>운동장 안전을 위해</div>
-    </div>
-    <p class="note">쓰레기는 지회별로 모아서 가져가 주세요. 참가자 모두 단체 상해보험에 가입될 예정입니다. 함께 온 아이들을 위해 에어바운스도 준비했어요.</p>
+    <h3>참여부스 안내 <span class="h-tag blue">10:00~12:30</span></h3>
+    <p class="muted small" style="margin:-4px 0 10px">에어바운스는 운동장 왼쪽 농구장, 나머지 부스는 운동장 오른쪽에 있어요.</p>
+    <ul class="booths">
+      <li><i>1</i><div><b>에어바운스</b><span>동반 자녀를 위한 에어바운스, 행사 종료 시까지 운영해요.</span></div></li>
+      <li><i>2</i><div><b>10초를 잡아라</b><span>정확히 10초에 스톱워치를 멈추는 게임! 기회는 1번, 다시 줄 서서 재도전할 수 있어요.</span></div></li>
+      <li><i>3</i><div><b>스피드 스틱잡기</b><span>무작위로 떨어지는 스틱을 빠르게 잡아요. 잡은 개수에 따라 상품을 드려요.</span></div></li>
+      <li><i>4</i><div><b>참참 링던지기</b><span>영도시니어클럽 참기름·참깨를 걸고 링을 던져요. 성공한 개수에 따라 상품 증정!</span></div></li>
+      <li><i>5</i><div><b>인생네컷</b><span>'다커서 운동회' 기념사진을 찍어 가세요.</span></div></li>
+      <li><i>6</i><div><b>청년위원회 '야르展 · 샤갈展'</b><span>현장의 닮고 싶은 선배와 닮고 싶지 않은 선배 미니 전시, 관람하고 참여해요.</span></div></li>
+    </ul>
   </div>
 
-  <div class="card rain">
-    <svg viewBox="0 0 24 24"><path d="M20 16.6A5 5 0 0 0 18 7h-1.3A8 8 0 1 0 4 15.3"/><path d="M8 19v2M8 13v2M16 19v2M16 13v2M12 21v2M12 15v2"/></svg>
-    <div><b>비가 오면</b><br><span class="muted small">우천 시 행사는 취소되며, 소속 지회와 사무처에서 개별로 연락드립니다. 진행 여부는 <b>10월 28일(수)</b>에 최종 결정합니다.</span></div>
+  <div class="card">
+    <h3>챙겨오세요 · 지켜주세요</h3>
+    <ol class="steps emo">
+      <li><b><i>🍜</i>라면 챙겨오기 (1인 1개 이상)</b><span>나누는 라면으로 푸드뱅크에 기부돼요!</span></li>
+      <li><b><i>👕👟</i>편한 옷, 편한 신발</b><span>운동회에 맞게 편하게 와 주세요.</span></li>
+      <li><b><i>🚇🚌</i>대중교통 이용</b><span>주차공간이 매우매우 협소합니다.</span></li>
+      <li><b><i>🚫</i>화기 및 취사금지</b><span>안전사고 예방을 위해 절대 금지됩니다.</span></li>
+    </ol>
+  </div>
+
+  <div class="card full note-card">
+    <h3>참고사항</h3>
+    <ul class="dot-list">
+      <li>참가자 전체 상해보험 가입 예정 <span class="muted">＊의료부스 별도 운영</span></li>
+      <li>동반 가족을 위한 에어바운스 등 놀거리 준비</li>
+      <li>깨끗한 행사를 위해 함께 노력해 주세요!</li>
+    </ul>
   </div>
 </section>
 
 <!-- ============ 3. 프로그램 ============ -->
 <section class="sec tint g2" id="program">
   <div class="sec-head">
-    <div class="bib">No.<em>03</em></div>
+    <div class="bib">No.<em>02</em></div>
     <h2>프로그램</h2>
     <p>아침엔 조금 어색해도, 점심 먹고 나면 다 친구입니다.</p>
   </div>
@@ -746,7 +712,7 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
   <div class="part p2">
     <div class="part-h"><b>2부 지회대항전</b><span>10:00 ~ 13:00</span></div>
     <ul class="tt">
-      <li><span class="t">10:00~12:00</span><span class="w">지회대항전 및 체험부스<small>체험부스는 12:30까지 운영</small></span></li>
+      <li><span class="t">10:00~12:00</span><span class="w">지회대항전 및 참여부스<small>참여부스는 12:30까지 운영</small></span></li>
       <li><span class="t">12:00~13:00</span><span class="w">점심식사 및 미니게임<small>미니게임 4종 + 랜덤플레이댄스</small></span></li>
     </ul>
   </div>
@@ -767,7 +733,6 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
     <h3>무슨 경기를 하나요?</h3>
     <div class="tabs" role="tablist" id="progTabs">
       <button class="tab" role="tab" aria-selected="true" data-panel="pg1">지회대항전</button>
-      <button class="tab" role="tab" aria-selected="false" data-panel="pg2">체험부스</button>
       <button class="tab" role="tab" aria-selected="false" data-panel="pg3">점심게임</button>
       <button class="tab" role="tab" aria-selected="false" data-panel="pg4">결승전·시상</button>
     </div>
@@ -792,16 +757,6 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
       </div></div>
     </div>
 
-    <div id="pg2" role="tabpanel" hidden>
-      <p class="muted small" style="margin:0 0 6px">10:00~12:30 · 에어바운스는 운동장 왼쪽 농구장, 나머지 부스는 운동장 오른쪽에 있어요.</p>
-      <div class="game"><span class="n c-r">1</span><div><h4>에어바운스</h4><p>함께 온 아이들을 위한 공간이에요. 행사가 끝날 때까지 운영합니다.</p></div></div>
-      <div class="game"><span class="n c-b">2</span><div><h4>10초를 잡아라</h4><p>스톱워치를 정확히 10초에 멈추면 성공. 기회는 한 번, 다시 하려면 줄을 새로 서야 해요.</p></div></div>
-      <div class="game"><span class="n c-o">3</span><div><h4>스피드 스틱잡기</h4><p>아무 때나 떨어지는 스틱을 재빨리 잡는 게임. 잡은 개수만큼 상품이 달라져요.</p></div></div>
-      <div class="game"><span class="n c-g">4</span><div><h4>참참 링던지기</h4><p>영도시니어클럽의 참기름과 참깨를 걸고 링을 던집니다. 다섯 개 성공하면 참깨세트!</p></div></div>
-      <div class="game"><span class="n c-b">5</span><div><h4>인생네컷</h4><p>'다커서 운동회' 기념사진. 지회 사람들이랑 꼭 한 장 남겨 가세요.</p></div></div>
-      <div class="game"><span class="n c-r">6</span><div><h4>청년위원회 '야르展 · 샤갈展'</h4><p>닮고 싶은 선배와 닮고 싶지 않은 선배를 모은 작은 전시. 보다 보면 뜨끔하실 수도 있어요.</p></div></div>
-    </div>
-
     <div id="pg3" role="tabpanel" hidden>
       <p class="muted small" style="margin:0 0 6px">12:00~12:40 미니게임 · 아이, 부모, 직장 동료와 짝지어 참여할 수 있어요.</p>
       <div class="game"><span class="n c-o">1</span><div><h4>오리링던지기</h4><p>짝꿍 머리 위의 오리에게 링을 걸어 주세요.</p></div></div>
@@ -822,13 +777,13 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
         <p>네 지회가 한 팀. 신호가 끝나기 전에 기둥에 볼풀공을 더 많이 넣는 팀이 이깁니다. 마지막 경기라 점수가 가장 커요.</p>
         <div class="meta"><span class="pill">팀당 40명 (남 20 · 여 20)</span><span class="pill s">1위 200점</span></div>
       </div></div>
-      <div class="game"><span class="n c-b">2</span><div><h4>축하공연</h4><p>13:30부터 20분. 초청 가수 <b>백프로</b>의 무대가 이어져요.</p></div></div>
+      <div class="game"><span class="n c-b">2</span><div><h4>축하공연</h4><p>13:30부터 20분, 축하공연이 이어져요.</p></div></div>
       <div class="game"><span class="n c-o">3</span><div>
         <h4>시상 및 경품추첨</h4>
         <p>하루 동안 모은 점수로 순위를 가립니다. 응원을 가장 열심히 한 지회에게는 응원상이 있어요.</p>
         <!-- ✏️ 상금·경품이 바뀌면 여기 숫자를 고쳐 주세요 -->
         <div class="prize"><div><b>우승</b><span>100만 원</span></div><div><b>준우승</b><span>50만 원</span></div><div><b>응원상</b><span>30만 원</span></div></div>
-        <p class="small muted" style="margin-top:10px">팔찌를 받은 분만 추첨에 들어갑니다. <a href="#prizes"><b>경품 미리보기 ›</b></a></p>
+        <p class="small muted" style="margin-top:10px">팔찌의 행운번호로 추첨해요. 팔찌를 꼭 챙겨 주세요!</p>
       </div></div>
     </div>
 
@@ -850,62 +805,23 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
     </details>
   </div>
 
-  <!-- ✏️ 초청 가수: 사진은 images/singer.jpg 로 올리면 자동으로 바뀌어요 -->
-  <div class="card full singer">
-    <div class="sg-photo"><img src="images/singer.jpg" alt="축하공연 초청 가수 백프로" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/singer-placeholder.svg'"></div>
-    <div class="sg-body">
-      <span class="sg-label">축하공연 초청 가수</span>
-      <h3 class="sg-name">백프로</h3>
-      <p class="sg-time"><b>13:30 ~ 13:50</b> 3부 화합의 장</p>
-      <p class="sg-desc">부산 무대를 누비는 가수 백프로가 다커서 운동회를 찾아옵니다.</p>
-      <p class="sg-desc">오전 내내 뛰고 당기느라 지친 몸, 노래 한 곡에 다시 풀어 보세요. 결승전 끝나고 시상식 들어가기 전, 운동장이 제일 뜨거워지는 20분입니다.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 경품 미리보기 ============ -->
-<!-- ✏️ 올해 경품이 확정되면 Claude에게 알려 주세요. 사진과 이름을 바꿔 드립니다 -->
-<section class="sec prizes" id="prizes">
-  <div class="sec-head">
-    <div class="bib">No.<em>04</em></div>
-    <h2>경품 미리보기</h2>
-    <p>팔찌만 받으면 누구나 추첨 대상이에요.<br>끝까지 자리를 지킨 분께 행운이 갑니다.</p>
-  </div>
-  <div class="prize-note"><b>작년 경품이에요</b> 올해 경품은 확정되는 대로 이 자리에 바로 공개할게요. 작년만큼, 아니 그 이상을 준비하고 있어요.</div>
-  <ul class="prize-grid">
-    <li class="prize-card big"><span class="p-rank">대표 경품</span><img src="images/prizes/standbyme.jpg" alt="LG전자 스탠바이미" loading="lazy" decoding="async"><b>LG 스탠바이미</b></li>
-    <li class="prize-card big b2"><span class="p-rank">대표 경품</span><img src="images/prizes/dyson.jpg" alt="다이슨 헤어드라이어" loading="lazy" decoding="async"><b>다이슨 헤어드라이어</b></li>
-    <li class="prize-card big b2"><span class="p-rank">대표 경품</span><img src="images/prizes/minix.jpg" alt="미닉스 음식물처리기" loading="lazy" decoding="async"><b>음식물처리기</b></li>
-    <li class="prize-card"><img src="images/prizes/shinsegae.jpg" alt="신세계 백화점상품권" loading="lazy" decoding="async"><b>백화점상품권 10만원권</b></li>
-    <li class="prize-card"><img src="images/prizes/sojung.jpg" alt="의류상품권" loading="lazy" decoding="async"><b>의류상품권 30만원권</b></li>
-    <li class="prize-card"><img src="images/prizes/checkup.jpg" alt="건강검진권" loading="lazy" decoding="async"><b>건강검진 50만원권</b></li>
-    <li class="prize-card"><img src="images/prizes/sesame.jpg" alt="참들깨세트" loading="lazy" decoding="async"><b>참들깨세트</b></li>
-  </ul>
-  <div class="prize-cta">
-    <div class="pc-time"><span>추첨</span><b>13:50~14:30</b><small>3부 시상식 및 경품추첨</small></div>
-    <div class="pc-steps">
-      <p><i>1</i>도착하면 우리 지회 스탭에게 <b>팔찌 받기</b></p>
-      <p><i>2</i>10시 이후 도착했다면 <b>본부에서</b> 받기</p>
-      <p><i>3</i>추첨 시간까지 <b>자리 지키기</b></p>
-    </div>
-  </div>
 </section>
 
 <!-- ============ 4. 배치도 ============ -->
 <section class="sec" id="layout">
   <div class="sec-head">
-    <div class="bib">No.<em>05</em></div>
+    <div class="bib">No.<em>03</em></div>
     <h2>행사장 배치도</h2>
     <p>우리 지회 자리는 운동장 아래쪽 캐노피입니다.</p>
   </div>
   <div class="card">
-    <a class="map-img" href="images/layout.jpg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="images/layout.jpg" alt="신학대학 운동장 배치도: 위쪽 스탠드 가운데 본부, 왼쪽 의료부스와 에어바운스, 오른쪽 체험부스, 아래쪽 지회 캐노피와 접수 통로 두 곳"></a>
+    <a class="map-img" href="images/layout.jpg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="images/layout.jpg" alt="신학대학 운동장 배치도: 위쪽 스탠드 가운데 본부, 왼쪽 의료부스와 에어바운스, 오른쪽 참여부스, 아래쪽 지회 캐노피와 접수 통로 두 곳"></a>
     <div class="zoom-hint">사진을 누르면 크게 볼 수 있어요.</div>
     <ul class="legend">
       <li><b style="background:#e05431">본</b>본부 <span>스탠드 가운데</span></li>
       <li><b style="background:#d23b50">+</b>의료부스 <span>운동장 왼쪽 위</span></li>
       <li><b style="background:#f2a01a">에</b>에어바운스 <span>왼쪽 농구장</span></li>
-      <li><b style="background:#4d9fd6">체</b>체험부스 6종 <span>운동장 오른쪽</span></li>
+      <li><b style="background:#4d9fd6">참</b>참여부스 6종 <span>운동장 오른쪽</span></li>
       <li><b style="background:#4e9c60">지</b>지회 캐노피 <span>운동장 아래쪽</span></li>
       <li><b style="background:#7b8390">통</b>통로 · 접수 <span>아래쪽 두 곳</span></li>
     </ul>
@@ -917,7 +833,7 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
 <!-- ============ 5. 오시는 길 ============ -->
 <section class="sec g2" id="location">
   <div class="sec-head">
-    <div class="bib">No.<em>06</em></div>
+    <div class="bib">No.<em>04</em></div>
     <h2>오시는 길</h2>
     <p>정문으로 들어와 신학대학 운동장으로 오세요.</p>
   </div>
@@ -956,9 +872,8 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
 <!-- ============ 6. 주차·화장실 (게시판 미리보기) ============ -->
 <section class="sec g2" id="facility">
   <div class="sec-head">
-    <div class="bib">No.<em>07</em></div>
+    <div class="bib">No.<em>05</em></div>
     <h2>주차 · 화장실</h2>
-    <p>당일 현장 상황이 바뀌면 여기에 가장 먼저 올립니다.</p>
   </div>
   <div class="card full site-card">
     <h3>현장 지도</h3>
@@ -977,31 +892,25 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
   </div>
 </section>
 
-<!-- ============ 7. 참가 현황 ============ -->
-<section class="sec tint" id="stats">
+<!-- ============ 참가신청 확인 ============ -->
+<section class="sec tint" id="apply">
   <div class="sec-head">
-    <div class="bib">No.<em>08</em></div>
-    <h2>참가 현황</h2>
-    <p>올해 운동장에 모이는 사람들입니다.</p>
+    <div class="bib">No.<em>06</em></div>
+    <h2>참가신청 확인</h2>
+    <p>소속 지회를 통해 신청한 명단이에요. 내 이름이 잘 들어갔는지 확인해 보세요.</p>
   </div>
-  <div class="card">
-    <div class="total-wrap">
-      <div>
-        <div class="total-label" id="totalLabel">전체 참가자</div>
-        <div class="total"><span id="total">0</span><small>명</small></div>
-        <div class="total-sub" id="statUpdated"></div>
-      </div>
-    </div>
-    <div class="filters" id="filters"></div>
-    <div class="charts" id="charts"></div>
-  </div>
-  <p class="note">이름과 연락처 없이 인원 수만 보여 드려요. 막대를 누르면 그 항목만 골라서 볼 수 있어요.</p>
+  <a class="apply-card" href="https://docs.google.com/spreadsheets/d/1RUcfDGjUTm06zvuxVTIRKtYmj3TmdNnixW022VVaHVI/edit?usp=sharing" target="_blank" rel="noopener">
+    <span class="ac-ic"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg></span>
+    <span class="ac-txt"><b>참가신청 명단 열기</b><small>구글 시트가 새 창으로 열려요</small></span>
+    <span class="ac-go">›</span>
+  </a>
+  <p class="note">명단에 없거나 잘못된 부분이 있으면 소속 지회 사무국으로 문의해 주세요.</p>
 </section>
 
 <!-- ============ 8. 수상자 ============ -->
 <section class="sec" id="awards">
   <div class="sec-head">
-    <div class="bib">No.<em>09</em></div>
+    <div class="bib">No.<em>07</em></div>
     <h2>수상자</h2>
     <p>묵묵히 자리를 지켜 온 동료들입니다. 크게 박수 쳐 주세요.</p>
   </div>
@@ -1009,16 +918,12 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
   <div id="awardList"></div>
 </section>
 
-<!-- ============ 9. 찬조처 ============ -->
+<!-- ============ 고마운 분들 ============ -->
 <section class="sec g2" id="sponsors">
   <div class="sec-head">
-    <div class="bib">No.<em>10</em></div>
+    <div class="bib">No.<em>08</em></div>
     <h2>고마운 분들</h2>
     <p>이 운동회는 이분들 덕분에 열립니다.</p>
-  </div>
-  <div class="card">
-    <div class="thanks-top"><div class="num" id="sponsorCount">0</div><p id="sponsorCountText">곳에서 마음을 보태 주셨어요</p></div>
-    <div id="sponsorList"></div>
   </div>
   <div class="card" id="sponsorGuide">
     <h3>찬조로 함께해 주세요</h3>
@@ -1027,86 +932,36 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
       <div><small>국민은행 · 예금주 부산사회복지사협회</small><b>951701-01-301223</b></div>
       <button class="btn" type="button" data-copy="국민은행 951701-01-301223">복사</button>
     </div>
-    <ul class="benefit">
-      <li>행사장 찬조처 현수막, 이 페이지에 찬조처 게재</li>
-      <li>행사 후 협회 홈페이지 팝업, 카드뉴스(SNS·알림톡) 홍보</li>
+  </div>
+  <div class="card">
+    <h3>찬조혜택</h3>
+    <ul class="dot-list">
+      <li><b>행사 전 · 당일</b> 행사장 내 찬조처 현수막 홍보, 모바일 리플렛(이 페이지)에 찬조처 게재</li>
+      <li><b>행사 후</b> 협회 홈페이지 팝업 게시, 카드뉴스 홍보 (SNS 업로드 및 알림톡 발송)</li>
     </ul>
   </div>
+  <div class="card full thanks-card">
+    <p class="thanks-title">마음을 함께해 주셔서 감사합니다.</p>
+    <!-- ✏️ 찬조처 로고: 가나다 순으로 자동 정렬돼요. 로고 이미지를 주시면 Claude가 바꿔 드립니다 -->
+    <ul class="logo-grid" id="logoGrid"></ul>
+  </div>
 </section>
 
-<!-- ============ 10. 소통방 ============ -->
-<section class="sec tint" id="cheer">
-  <div class="sec-head">
-    <div class="bib">No.<em>11</em></div>
-    <h2>소통방</h2>
-    <p>기대되는 것, 축하하고 싶은 사람, 당일 불편했던 점까지 편하게 적어 주세요.<br>불편한 점은 운영진이 확인하고 답을 달아 둘게요.</p>
-  </div>
-
-  <div class="clap-box">
-    <button class="clap-btn" id="clapBtn" type="button" aria-label="박수 보내기">
-      <svg viewBox="0 0 24 24"><path d="M11 12.5 6.6 8.1a1.5 1.5 0 0 1 2.1-2.1l4.6 4.6"/><path d="m9.4 9.5-2-2a1.5 1.5 0 0 1 2.1-2.1l4.4 4.4"/><path d="M13.3 10.6 11 8.3a1.5 1.5 0 0 1 2.1-2.1l4 4c2.3 2.3 2.3 6.1 0 8.4s-6.1 2.3-8.4 0L5.3 15.2a1.5 1.5 0 0 1 2.1-2.1l2.2 2.2"/><path d="M17.5 3.5 18.5 2M20.5 6.5 22 5.5M19.5 4.5l1.8-.8"/></svg>
-    </button>
-    <div><div class="cnt"><span id="clapCount">0</span>번</div><p>함께 보낸 박수. 누를 때마다 올라가요.</p></div>
-  </div>
-
-  <div class="card composer">
-    <div class="preview-note hide" id="previewNote">아직 구글 시트와 연결되지 않은 미리보기예요. 지금 쓰는 글은 이 화면에만 보입니다.</div>
-    <form class="form" id="cheerForm" autocomplete="off">
-      <div class="cat-pick" id="catPick" role="radiogroup" aria-label="어떤 이야기인가요"></div>
-      <label class="to-row" id="toRow">누구에게 <span class="muted" style="font-weight:500">(없으면 비워 두세요)</span><input name="to" id="toInput" maxlength="20" placeholder="예) 영도구지회, 홍길동 선생님"></label>
-      <label>내용<textarea name="text" id="msgInput" maxlength="200" required placeholder=""></textarea></label>
-      <div class="count"><span id="msgCount">0</span>/200</div>
-      <div class="two">
-        <label>보내는 사람<input name="name" maxlength="12" required placeholder="예) 해운대 김쌤"></label>
-        <label>소속 지회<select name="branch" id="branchSelect"><option value="">선택 안 함</option></select></label>
-      </div>
-      <input class="hp" name="website" tabindex="-1" aria-hidden="true">
-      <button class="btn dark block" type="submit" id="cheerSubmit">붙이기</button>
-      <p class="form-msg" id="formMsg" role="status"></p>
-    </form>
-  </div>
-
-  <div class="reply-guide">
-    <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
-    <div><b>운영진 답변은 새로고침하면 보여요</b><span>불편한 점을 남기셨다면 잠시 뒤 <b>새로고침</b> 버튼을 눌러 보세요. 답변이 글 아래에 달려요.</span></div>
-    <button class="btn" type="button" id="wallRefresh">새로고침</button>
-  </div>
-  <p class="refresh-msg" id="refreshMsg" role="status"></p>
-  <div class="wall-bar">
-    <div class="tabs" id="wallChips"></div>
-    <div class="wall-sort" id="wallSort"><button type="button" data-sort="new" aria-pressed="true">최신순</button><button type="button" data-sort="like" aria-pressed="false">공감순</button></div>
-  </div>
-  <div class="wall" id="wall"></div>
-  <button class="btn block wall-more hide" id="wallMore" type="button">더 보기</button>
-</section>
-
-<!-- ============ 11. 지회 연락처 ============ -->
-<section class="sec" id="branches">
-  <div class="sec-head">
-    <div class="bib">No.<em>12</em></div>
-    <h2>16개 구·군지회</h2>
-    <p>참가 관련 문의는 소속 지회 사무국으로 연락 주세요.</p>
-  </div>
-  <div class="card"><ul class="branches" id="branchList"></ul></div>
-</section>
-
-<!-- ============ 12. 문의 ============ -->
+<!-- ============ 행사 문의 ============ -->
 <section class="sec" id="contact">
   <div class="sec-head">
-    <div class="bib">No.<em>13</em></div>
+    <div class="bib">No.<em>09</em></div>
     <h2>행사 문의</h2>
   </div>
   <div class="card">
-    <div class="contact-main">
-      <span class="muted small">부산광역시사회복지사협회</span>
-      <b>이지수 대리</b>
-    </div>
-    <div class="btns">
-      <a class="btn dark" id="hqTel" href="tel:051-507-1285"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>051-507-1285</a>
-      <a class="btn" href="mailto:baswco@hanmail.net">baswco@hanmail.net</a>
-      <a class="btn" href="https://www.welfare.net/busan/notice/notice-list/detail?id=913999&amp;ctgryCd=11" target="_blank" rel="noopener">협회 홈페이지</a>
-    </div>
-    <p class="hq-note" id="hqNote">행사 전 평일에 문의하실 때 쓰는 번호예요. <b>행사 당일에는 전화를 받기 어려우니 운동장 스탠드 가운데 본부로 와 주세요.</b></p>
+    <h3 class="q-title">▶ 참가관련 문의</h3>
+    <p class="muted small" style="margin:-4px 0 6px">소속 지회 사무국으로 연락해 주세요.</p>
+    <ul class="branches" id="branchList"></ul>
+  </div>
+  <div class="card">
+    <h3 class="q-title">▶ 행사관련 문의</h3>
+    <p class="hq-line">부산광역시사회복지사협회 이지수 대리 <a id="hqTel" href="tel:051-507-1285">(T.051-507-1285)</a></p>
+    <p class="hq-note" id="hqNote">※ 행사 당일 문의 시, 운영본부 부스로 문의해 주세요.</p>
   </div>
 </section>
 
@@ -1144,7 +999,7 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
   <a href="#program"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>일정</a>
   <a href="#layout"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M12 5v14"/><circle cx="12" cy="12" r="2.5"/></svg>배치도</a>
   <a href="#board" class="hot"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9 16V8h3.5a2.5 2.5 0 0 1 0 5H9"/></svg><span>주차·화장실</span></a>
-  <a href="#cheer"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12z"/></svg>소통방</a>
+  <a href="#contact"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>행사 문의</a>
 </nav></div>
 <div class="tip" id="tip"></div>
 
@@ -1162,426 +1017,6 @@ const CONFIG = {
   STAT_UPDATED: "2026. 9. 28. 기준",   // 참가 현황 기준일
   STAT_IS_SAMPLE: true,                // 실제 명단을 넣으면 false 로
 };
-
-/* =====================================================================
-   ✏️ 참가자 데이터 — 엑셀에서 [지회][시설유형][성별] 열을 제목 줄까지 복사해 붙여넣기
-   ⚠️ 이름 · 연락처 · 생년월일은 절대 넣지 마세요 (인터넷에 공개됩니다)
-   ===================================================================== */
-const PARTICIPANT_DATA = `
-지회	시설유형	성별
-부산진구지회	종합사회복지관	남
-부산진구지회	지역자활	여
-기장군지회	종합사회복지관	남
-사하구지회	노인복지	여
-부산진구지회	노인복지	여
-북구지회	공공(행정)	여
-사상구지회	아동·청소년	남
-사하구지회	지역자활	여
-사하구지회	종합사회복지관	여
-금정구지회	장애인복지	여
-사상구지회	종합사회복지관	여
-부산진구지회	장애인복지	남
-남구지회	장애인복지	남
-강서구지회	노인복지	남
-사하구지회	종합사회복지관	남
-해운대구지회	노인복지	여
-동구지회	장애인복지	남
-동구지회	노인복지	남
-수영구지회	아동·청소년	여
-영도구지회	아동·청소년	여
-해운대구지회	공공(행정)	여
-남구지회	노인복지	남
-동래구지회	공공(행정)	여
-부산진구지회	지역자활	여
-연제구지회	장애인복지	여
-금정구지회	아동·청소년	여
-해운대구지회	노인복지	여
-남구지회	노인복지	여
-금정구지회	종합사회복지관	여
-사하구지회	장애인복지	남
-북구지회	기타	여
-부산진구지회	아동·청소년	여
-부산진구지회	장애인복지	여
-남구지회	지역자활	여
-해운대구지회	노인복지	여
-기장군지회	지역자활	남
-금정구지회	노인복지	여
-부산진구지회	노인복지	남
-동래구지회	장애인복지	여
-금정구지회	노인복지	여
-사상구지회	장애인복지	여
-사상구지회	아동·청소년	남
-부산진구지회	지역자활	남
-영도구지회	노인복지	여
-기장군지회	노인복지	여
-중구지회	지역자활	여
-수영구지회	노인복지	남
-기장군지회	아동·청소년	남
-사상구지회	종합사회복지관	여
-금정구지회	노인복지	남
-해운대구지회	장애인복지	여
-남구지회	지역자활	남
-동구지회	노인복지	여
-금정구지회	종합사회복지관	남
-사하구지회	지역자활	남
-금정구지회	장애인복지	여
-수영구지회	노인복지	여
-부산진구지회	장애인복지	여
-강서구지회	장애인복지	여
-북구지회	노인복지	여
-동래구지회	종합사회복지관	여
-사하구지회	공공(행정)	남
-사상구지회	노인복지	남
-강서구지회	노인복지	남
-중구지회	공공(행정)	여
-해운대구지회	노인복지	남
-사하구지회	종합사회복지관	여
-수영구지회	아동·청소년	여
-해운대구지회	노인복지	남
-사상구지회	기타	여
-중구지회	기타	여
-연제구지회	아동·청소년	여
-금정구지회	종합사회복지관	여
-영도구지회	종합사회복지관	여
-영도구지회	지역자활	여
-사하구지회	아동·청소년	여
-사상구지회	지역자활	여
-금정구지회	공공(행정)	여
-해운대구지회	종합사회복지관	여
-부산진구지회	기타	남
-부산진구지회	종합사회복지관	남
-금정구지회	종합사회복지관	여
-동구지회	노인복지	남
-강서구지회	공공(행정)	여
-북구지회	지역자활	남
-남구지회	노인복지	여
-동구지회	공공(행정)	남
-남구지회	노인복지	여
-사하구지회	종합사회복지관	남
-중구지회	아동·청소년	여
-사하구지회	장애인복지	여
-연제구지회	장애인복지	여
-동래구지회	지역자활	여
-남구지회	노인복지	남
-동래구지회	노인복지	여
-해운대구지회	장애인복지	여
-금정구지회	종합사회복지관	여
-해운대구지회	종합사회복지관	여
-사하구지회	종합사회복지관	여
-서구지회	지역자활	남
-동래구지회	노인복지	여
-영도구지회	노인복지	여
-사상구지회	장애인복지	남
-강서구지회	노인복지	여
-부산진구지회	노인복지	여
-남구지회	노인복지	여
-해운대구지회	노인복지	남
-금정구지회	종합사회복지관	여
-해운대구지회	공공(행정)	여
-남구지회	종합사회복지관	여
-기장군지회	노인복지	남
-북구지회	노인복지	여
-남구지회	아동·청소년	남
-서구지회	종합사회복지관	남
-사하구지회	노인복지	여
-영도구지회	공공(행정)	여
-금정구지회	기타	여
-금정구지회	종합사회복지관	여
-사하구지회	노인복지	여
-사상구지회	공공(행정)	남
-연제구지회	아동·청소년	남
-동래구지회	장애인복지	여
-서구지회	공공(행정)	여
-남구지회	아동·청소년	여
-해운대구지회	종합사회복지관	여
-남구지회	공공(행정)	여
-동래구지회	노인복지	여
-부산진구지회	종합사회복지관	여
-수영구지회	종합사회복지관	여
-남구지회	노인복지	여
-연제구지회	노인복지	남
-동래구지회	노인복지	남
-기장군지회	종합사회복지관	남
-영도구지회	공공(행정)	남
-해운대구지회	종합사회복지관	남
-해운대구지회	노인복지	여
-부산진구지회	종합사회복지관	여
-연제구지회	종합사회복지관	여
-북구지회	종합사회복지관	여
-동구지회	아동·청소년	남
-남구지회	노인복지	남
-북구지회	지역자활	남
-남구지회	종합사회복지관	여
-북구지회	지역자활	여
-강서구지회	노인복지	남
-해운대구지회	종합사회복지관	남
-금정구지회	노인복지	여
-금정구지회	종합사회복지관	남
-부산진구지회	아동·청소년	여
-남구지회	종합사회복지관	여
-동래구지회	종합사회복지관	남
-동래구지회	장애인복지	여
-사하구지회	장애인복지	여
-서구지회	노인복지	여
-기장군지회	장애인복지	여
-서구지회	아동·청소년	여
-남구지회	종합사회복지관	여
-북구지회	지역자활	여
-영도구지회	지역자활	여
-서구지회	공공(행정)	남
-영도구지회	노인복지	여
-사하구지회	종합사회복지관	남
-기장군지회	장애인복지	남
-사하구지회	종합사회복지관	여
-영도구지회	지역자활	남
-영도구지회	장애인복지	여
-중구지회	아동·청소년	남
-동구지회	장애인복지	여
-연제구지회	장애인복지	여
-금정구지회	장애인복지	여
-수영구지회	장애인복지	여
-금정구지회	종합사회복지관	남
-연제구지회	노인복지	여
-부산진구지회	공공(행정)	여
-금정구지회	지역자활	여
-해운대구지회	아동·청소년	여
-서구지회	공공(행정)	여
-북구지회	공공(행정)	여
-연제구지회	종합사회복지관	여
-강서구지회	종합사회복지관	남
-북구지회	지역자활	남
-기장군지회	노인복지	여
-남구지회	노인복지	여
-해운대구지회	노인복지	남
-금정구지회	공공(행정)	남
-금정구지회	노인복지	여
-부산진구지회	종합사회복지관	남
-동래구지회	장애인복지	남
-동래구지회	공공(행정)	여
-영도구지회	노인복지	여
-부산진구지회	기타	여
-부산진구지회	장애인복지	남
-기장군지회	종합사회복지관	여
-동래구지회	노인복지	여
-사상구지회	장애인복지	남
-사상구지회	아동·청소년	여
-동구지회	노인복지	여
-연제구지회	아동·청소년	여
-중구지회	종합사회복지관	여
-수영구지회	노인복지	여
-남구지회	노인복지	여
-연제구지회	장애인복지	남
-금정구지회	아동·청소년	남
-금정구지회	장애인복지	여
-동래구지회	공공(행정)	여
-사상구지회	종합사회복지관	여
-부산진구지회	종합사회복지관	여
-서구지회	아동·청소년	남
-강서구지회	지역자활	여
-수영구지회	장애인복지	남
-부산진구지회	노인복지	여
-사하구지회	노인복지	여
-남구지회	장애인복지	여
-사상구지회	종합사회복지관	여
-해운대구지회	지역자활	여
-사하구지회	공공(행정)	여
-사상구지회	공공(행정)	여
-부산진구지회	노인복지	여
-부산진구지회	노인복지	남
-북구지회	지역자활	여
-부산진구지회	종합사회복지관	여
-동구지회	아동·청소년	남
-동구지회	종합사회복지관	여
-북구지회	장애인복지	남
-해운대구지회	공공(행정)	여
-강서구지회	장애인복지	남
-강서구지회	노인복지	여
-수영구지회	아동·청소년	여
-중구지회	기타	여
-금정구지회	기타	여
-금정구지회	장애인복지	여
-서구지회	장애인복지	여
-강서구지회	노인복지	남
-기장군지회	장애인복지	남
-서구지회	노인복지	남
-부산진구지회	노인복지	여
-영도구지회	아동·청소년	남
-기장군지회	아동·청소년	남
-기장군지회	종합사회복지관	남
-사상구지회	공공(행정)	남
-사하구지회	아동·청소년	남
-연제구지회	노인복지	여
-수영구지회	장애인복지	남
-금정구지회	장애인복지	남
-사하구지회	아동·청소년	여
-남구지회	공공(행정)	남
-서구지회	장애인복지	여
-수영구지회	장애인복지	여
-북구지회	공공(행정)	여
-영도구지회	노인복지	여
-강서구지회	장애인복지	여
-강서구지회	노인복지	여
-남구지회	장애인복지	여
-수영구지회	공공(행정)	여
-사상구지회	공공(행정)	여
-북구지회	아동·청소년	여
-동래구지회	종합사회복지관	여
-영도구지회	노인복지	여
-부산진구지회	지역자활	여
-부산진구지회	기타	여
-부산진구지회	노인복지	여
-기장군지회	지역자활	여
-동구지회	기타	여
-부산진구지회	아동·청소년	남
-금정구지회	아동·청소년	여
-북구지회	종합사회복지관	남
-사상구지회	공공(행정)	남
-동구지회	노인복지	여
-동구지회	공공(행정)	남
-금정구지회	장애인복지	남
-수영구지회	공공(행정)	여
-동구지회	노인복지	여
-동래구지회	기타	여
-동래구지회	노인복지	여
-서구지회	지역자활	남
-해운대구지회	공공(행정)	여
-부산진구지회	장애인복지	남
-동래구지회	아동·청소년	남
-남구지회	아동·청소년	여
-강서구지회	공공(행정)	여
-사상구지회	장애인복지	남
-동래구지회	아동·청소년	남
-기장군지회	지역자활	남
-기장군지회	노인복지	남
-영도구지회	장애인복지	여
-남구지회	노인복지	남
-기장군지회	장애인복지	여
-사하구지회	종합사회복지관	여
-사상구지회	장애인복지	남
-금정구지회	노인복지	여
-수영구지회	아동·청소년	여
-강서구지회	공공(행정)	여
-금정구지회	공공(행정)	여
-남구지회	장애인복지	남
-수영구지회	종합사회복지관	여
-수영구지회	아동·청소년	여
-동래구지회	아동·청소년	여
-북구지회	종합사회복지관	여
-서구지회	노인복지	여
-수영구지회	공공(행정)	여
-영도구지회	아동·청소년	여
-중구지회	종합사회복지관	여
-북구지회	공공(행정)	여
-연제구지회	종합사회복지관	여
-해운대구지회	장애인복지	여
-해운대구지회	아동·청소년	여
-동래구지회	아동·청소년	여
-북구지회	장애인복지	여
-부산진구지회	기타	여
-동구지회	노인복지	여
-해운대구지회	종합사회복지관	여
-사상구지회	노인복지	여
-금정구지회	노인복지	여
-남구지회	장애인복지	남
-서구지회	지역자활	남
-남구지회	노인복지	여
-부산진구지회	장애인복지	남
-해운대구지회	종합사회복지관	남
-영도구지회	종합사회복지관	여
-해운대구지회	아동·청소년	남
-수영구지회	노인복지	남
-영도구지회	아동·청소년	여
-남구지회	노인복지	여
-해운대구지회	종합사회복지관	여
-연제구지회	노인복지	여
-중구지회	종합사회복지관	여
-부산진구지회	장애인복지	여
-사하구지회	노인복지	여
-기장군지회	아동·청소년	여
-남구지회	종합사회복지관	여
-사하구지회	지역자활	여
-북구지회	노인복지	여
-사상구지회	노인복지	여
-남구지회	노인복지	여
-금정구지회	장애인복지	남
-서구지회	노인복지	남
-서구지회	노인복지	남
-북구지회	종합사회복지관	여
-강서구지회	장애인복지	여
-기장군지회	공공(행정)	여
-연제구지회	종합사회복지관	여
-강서구지회	종합사회복지관	남
-북구지회	장애인복지	여
-동구지회	노인복지	남
-동구지회	종합사회복지관	여
-동래구지회	공공(행정)	여
-금정구지회	아동·청소년	남
-수영구지회	노인복지	남
-강서구지회	아동·청소년	남
-남구지회	지역자활	여
-부산진구지회	노인복지	여
-중구지회	노인복지	여
-사하구지회	종합사회복지관	여
-해운대구지회	아동·청소년	남
-사하구지회	장애인복지	여
-남구지회	기타	여
-동래구지회	장애인복지	남
-부산진구지회	공공(행정)	여
-부산진구지회	아동·청소년	여
-금정구지회	지역자활	여
-금정구지회	공공(행정)	여
-기장군지회	아동·청소년	여
-영도구지회	지역자활	여
-금정구지회	노인복지	여
-해운대구지회	종합사회복지관	여
-수영구지회	아동·청소년	여
-해운대구지회	노인복지	여
-수영구지회	공공(행정)	여
-북구지회	종합사회복지관	남
-강서구지회	아동·청소년	남
-서구지회	장애인복지	남
-북구지회	장애인복지	여
-기장군지회	장애인복지	남
-금정구지회	아동·청소년	여
-북구지회	장애인복지	여
-사하구지회	노인복지	여
-수영구지회	장애인복지	남
-남구지회	지역자활	남
-북구지회	지역자활	여
-해운대구지회	종합사회복지관	여
-사상구지회	노인복지	여
-연제구지회	노인복지	여
-북구지회	종합사회복지관	여
-동래구지회	아동·청소년	여
-부산진구지회	노인복지	남
-해운대구지회	노인복지	여
-중구지회	종합사회복지관	남
-사상구지회	종합사회복지관	여
-기장군지회	기타	여
-사상구지회	노인복지	여
-동구지회	아동·청소년	여
-수영구지회	아동·청소년	여
-기장군지회	종합사회복지관	여
-부산진구지회	아동·청소년	여
-연제구지회	공공(행정)	여
-동구지회	공공(행정)	여
-사하구지회	공공(행정)	여
-기장군지회	종합사회복지관	남
-강서구지회	종합사회복지관	여
-금정구지회	아동·청소년	여
-동래구지회	노인복지	여
-남구지회	아동·청소년	여
-사하구지회	노인복지	여
-부산진구지회	종합사회복지관	남
-금정구지회	아동·청소년	여
-중구지회	공공(행정)	남
-수영구지회	장애인복지	남
-중구지회	종합사회복지관	여
-연제구지회	노인복지	남
-금정구지회	종합사회복지관	여
-북구지회	종합사회복지관	여
-중구지회	아동·청소년	여
-`;
 
 /* =====================================================================
    ✏️ 게시판 기본 글 — 구글 시트를 연결하면 시트 '게시판' 탭 내용으로 바뀝니다.
@@ -1612,6 +1047,18 @@ const SITE_PINS = [
 ];
 const SPOT_TYPES = { P:{label:"주차장", short:"P"}, WC:{label:"화장실", short:"WC"}, MED:{label:"의료부스", short:"+"}, HQ:{label:"본부", short:"본"}, ETC:{label:"기타", short:"•"} };
 
+/* ✏️ 찬조처 로고 (가나다 순으로 자동 정렬). 지금은 임시 로고예요 */
+const SPONSOR_LOGOS = [
+  { name:"찬조처 로고 1", img:"images/logo-placeholder.svg" },
+  { name:"찬조처 로고 2", img:"images/logo-placeholder.svg" },
+  { name:"찬조처 로고 3", img:"images/logo-placeholder.svg" },
+  { name:"찬조처 로고 4", img:"images/logo-placeholder.svg" },
+  { name:"찬조처 로고 5", img:"images/logo-placeholder.svg" },
+  { name:"찬조처 로고 6", img:"images/logo-placeholder.svg" },
+  { name:"찬조처 로고 7", img:"images/logo-placeholder.svg" },
+  { name:"찬조처 로고 8", img:"images/logo-placeholder.svg" },
+];
+
 /* 16개 구·군지회 (공문 2026. 9. 15. 기준) */
 const BRANCHES = [
   ["강서구지회","권기철","낙동종합사회복지관","박선미","051-271-0560"],
@@ -1634,9 +1081,6 @@ const BRANCHES = [
 
 /* 수상 부문 (시트에 명단이 없을 때 보여 줄 안내) */
 const AWARD_PLAN = [
-  { key:"우승", tab:"운동회 결과", color:"#e0a100", label:"1", note:"상금 100만 원", team:true },
-  { key:"준우승", tab:"운동회 결과", color:"#8f99a6", label:"2", note:"상금 50만 원", team:true },
-  { key:"응원상", tab:"운동회 결과", color:"#e05431", label:"응", note:"상금 30만 원", team:true },
   { key:"부산광역시장상", tab:"유공자 표창", color:"#4d9fd6", label:"시", count:16 },
   { key:"부산광역시의장상", tab:"유공자 표창", color:"#4e9c60", label:"의", count:2 },
   { key:"한국사회복지사협회장상", tab:"유공자 표창", color:"#6b5cc4", label:"한", count:3 },
@@ -1665,7 +1109,7 @@ function dayDiff(dateStr){ const t = new Date(dateStr + "T00:00:00"); return Mat
   el.innerHTML = diff > 0 ? `D-${diff} <small>운동장에서 만나요</small>` : diff === 0 ? `오늘이에요! <small>8시 30분까지 와 주세요</small>` : `함께해 주셔서 고맙습니다`;
   el.classList.remove("hide");
   if (dayDiff(CONFIG.SPONSOR_DEADLINE) < 0) $("#sponsorGuide").classList.add("hide");
-  if (diff === 0){ $("#hqTel").classList.add("hide"); $("#hqNote").innerHTML = "<b>오늘은 전화를 받기 어려워요. 궁금한 점은 운동장 스탠드 가운데 본부로 와 주세요.</b>"; }
+  if (diff === 0){ $("#hqNote").textContent = "※ 오늘은 전화를 받기 어려워요. 운영본부 부스로 와 주세요."; }
 })();
 
 /* ---------- 복사 버튼 ---------- */
@@ -1840,151 +1284,22 @@ function renderAwards(){
       body = `<div class="pending">${g.team ? "<b>10월 31일 오후, 시상식에서 발표합니다.</b><br>" : "<b>명단은 곧 공개됩니다.</b><br>"}${g.note ? esc(g.note) : ""}</div>`;
     } else {
       body = `<ul class="awardees">${people.map(p => g.team
-        ? `<li class="awardee team"><b>${esc(p.name)}</b>${p.note?`<small>${esc(p.note)}</small>`:""}<button type="button" data-cheer="${esc(p.name)}">축하하기</button></li>`
-        : `<li class="awardee"><b>${esc(p.name)}</b><span>${esc(p.org)}</span>${p.note?`<small>${esc(p.note)}</small>`:""}<button type="button" data-cheer="${esc(p.name)} 선생님">축하하기</button></li>`).join("")}</ul>`;
+        ? `<li class="awardee team"><b>${esc(p.name)}</b>${p.note?`<small>${esc(p.note)}</small>`:""}</li>`
+        : `<li class="awardee"><b>${esc(p.name)}</b><span>${esc(p.org)}</span>${p.note?`<small>${esc(p.note)}</small>`:""}</li>`).join("")}</ul>`;
     }
     return `<div class="award-group card"><div class="award-head"><span class="medal" style="background:${g.color}">${g.label}</span><h3>${esc(g.key)}</h3><span>${esc(sub)}</span></div>${body}</div>`;
   }).join("");
 }
 $("#awardTabs").addEventListener("click", e => { const t = e.target.closest("[data-atab]"); if (!t) return; awardTab = t.dataset.atab; renderAwards(); });
-document.addEventListener("click", e => {
-  const c = e.target.closest("[data-cheer]"); if (!c) return;
-  pickCat = "축하해요"; $("#toInput").value = c.dataset.cheer; renderPick();
-  $("#cheer").scrollIntoView({ behavior:"smooth" });
-  setTimeout(() => $("#msgInput").focus({ preventScroll:true }), 600);
-});
 
 /* =====================================================================
    찬조처
    ===================================================================== */
-function renderSponsors(){
-  const list = state.sponsors;
-  $("#sponsorCount").textContent = fmt(list.length);
-  if (!list.length){
-    $("#sponsorCount").textContent = "";
-    $("#sponsorCountText").innerHTML = "찬조해 주신 곳은 확인되는 대로<br>이곳에 한 분 한 분 올려 드립니다.";
-    $("#sponsorList").innerHTML = "";
-    return;
-  }
-  $("#sponsorCountText").textContent = "곳에서 마음을 보태 주셨어요";
-  const order = ["지회","기관·시설","직능단체","기업","개인"];
-  const groups = [...new Set(list.map(s => s.group || "함께해 주신 분"))].sort((a,b) => (order.indexOf(a)+1||99) - (order.indexOf(b)+1||99));
-  $("#sponsorList").innerHTML = groups.map(g => `<div class="banner"><h4>${esc(g)}</h4><div class="sponsors">${list.filter(s => (s.group||"함께해 주신 분") === g).map(s => `<span>${esc(s.name)}${s.detail?`<small>${esc(s.detail)}</small>`:""}</span>`).join("")}</div></div>`).join("");
+function renderLogos(){
+  const list = [...SPONSOR_LOGOS].sort((a,b) => a.name.localeCompare(b.name, "ko"));
+  $("#logoGrid").innerHTML = list.map(s => `<li><img src="${esc(s.img)}" alt="${esc(s.name)} 로고" loading="lazy" decoding="async"><span>${esc(s.name)}</span></li>`).join("");
 }
-
-/* =====================================================================
-   소통방 · 박수
-   ===================================================================== */
-const MSG_CATS = [
-  { key:"기대돼요", color:"#4d9fd6", ph:"예) 랜덤플레이댄스 벌써 연습 중이에요. 우리 지회 꼭 이겨요!" },
-  { key:"축하해요", color:"#e0a100", ph:"예) 수상 축하드려요! 올해도 고생 많으셨습니다.", to:true },
-  { key:"응원해요", color:"#4e9c60", ph:"예) 영도구지회 올해도 우승 가자!", to:true },
-  { key:"불편해요", color:"#e05431", ph:"예) 화장실 가는 길 안내가 잘 안 보여요. (운영진이 확인하고 답을 달아요)" },
-  { key:"자유", color:"#8a909b", ph:"무엇이든 편하게 적어 주세요." },
-];
-let wallLimit = 30, wallCat = "전체", wallSort = "new";
-let pickCat = dayDiff(CONFIG.EVENT_DATE) > 0 ? "기대돼요" : "축하해요";
-const myIds = new Set(store.get("dk_mine") || []);
-const liked = new Set(store.get("dk_liked") || []);
-function ago(t){
-  const d = new Date(t); if (isNaN(d)) return "";
-  const s = (Date.now() - d) / 1000;
-  if (s < 60) return "방금"; if (s < 3600) return Math.floor(s/60) + "분 전"; if (s < 86400) return Math.floor(s/3600) + "시간 전";
-  return `${d.getMonth()+1}월 ${d.getDate()}일`;
-}
-const catOf = m => MSG_CATS.some(c => c.key === m.cat) ? m.cat : "자유";
-function renderPick(){
-  $("#catPick").innerHTML = MSG_CATS.map(c => `<button type="button" role="radio" aria-checked="${c.key===pickCat}" data-pick="${c.key}"><i style="background:${c.color}"></i>${c.key}</button>`).join("");
-  const c = MSG_CATS.find(x => x.key === pickCat);
-  $("#msgInput").placeholder = c.ph;
-  $("#toRow").classList.toggle("hide", !c.to && !$("#toInput").value);
-}
-$("#catPick").addEventListener("click", e => { const b = e.target.closest("[data-pick]"); if (!b) return; pickCat = b.dataset.pick; renderPick(); });
-function renderWall(){
-  const all = state.messages;
-  const counts = {}; all.forEach(m => counts[catOf(m)] = (counts[catOf(m)] || 0) + 1);
-  $("#wallChips").innerHTML = ["전체", ...MSG_CATS.map(c => c.key)].filter(k => k === "전체" || counts[k])
-    .map(k => `<button class="tab" type="button" data-wcat="${k}" aria-selected="${k===wallCat}">${k} ${k==="전체"?all.length:counts[k]}</button>`).join("");
-  let list = all.filter(m => wallCat === "전체" || catOf(m) === wallCat);
-  if (wallSort === "like") list = [...list].sort((a,b) => (b.likes||0) - (a.likes||0) || String(b.time).localeCompare(String(a.time)));
-  $("#wall").innerHTML = list.slice(0, wallLimit).map(m => {
-    const on = liked.has(m.id), cat = catOf(m);
-    return `<div class="memo c-${cat}${myIds.has(m.id)?" mine":""}">
-      <div class="top"><span class="ctag">${cat}</span><span>${ago(m.time)}</span></div>
-      ${m.to ? `<span class="to">To. ${esc(m.to)}</span>` : ""}
-      <div class="txt">${esc(m.text)}</div>
-      ${m.reply ? `<div class="reply"><b>운영진 답변</b>${esc(m.reply)}</div>` : ""}
-      <div class="foot"><span class="from">${esc(m.name)}${m.branch?` · ${esc(m.branch)}`:""}</span>
-      <button class="like${on?" on":""}" type="button" data-like="${esc(m.id)}" aria-label="공감 ${m.likes||0}"><svg viewBox="0 0 24 24"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 0 0-7.1 7.1L12 21.5l8.8-8.8a5 5 0 0 0 0-7.1z"/></svg>${m.likes||0}</button></div>
-    </div>`;
-  }).join("") || `<div class="empty" style="column-span:all">${wallCat==="전체" ? "첫 번째 글을 남겨 주세요." : "아직 이 주제의 글이 없어요."}</div>`;
-  $("#wallMore").classList.toggle("hide", list.length <= wallLimit);
-  $("#clapCount").textContent = fmt(state.claps + clapPending);
-}
-$("#wallChips").addEventListener("click", e => { const b = e.target.closest("[data-wcat]"); if (!b) return; wallCat = b.dataset.wcat; wallLimit = 30; renderWall(); });
-$("#wallSort").addEventListener("click", e => { const b = e.target.closest("[data-sort]"); if (!b) return; wallSort = b.dataset.sort; $("#wallSort").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); renderWall(); });
-$("#wallMore").addEventListener("click", () => { wallLimit += 30; renderWall(); });
-$("#wall").addEventListener("click", async e => {
-  const b = e.target.closest("[data-like]"); if (!b) return;
-  const id = b.dataset.like; if (liked.has(id)) return;
-  const m = state.messages.find(x => x.id === id); if (!m) return;
-  liked.add(id); store.set("dk_liked", [...liked]); m.likes = (m.likes || 0) + 1; renderWall();
-  if (CONFIG.API_URL && !String(id).startsWith("local")){
-    try { const r = await api({ action:"like", id }); if (r.ok && typeof r.likes === "number"){ m.likes = r.likes; renderWall(); } } catch(_){}
-  }
-});
-$("#branchSelect").innerHTML += BRANCHES.map(b => `<option>${b[0]}</option>`).join("") + "<option>가족</option><option>기타</option>";
-$("#msgInput").addEventListener("input", e => $("#msgCount").textContent = e.target.value.length);
-renderPick();
-
-$("#cheerForm").addEventListener("submit", async e => {
-  e.preventDefault();
-  const f = e.target, msg = $("#formMsg"), btn = $("#cheerSubmit");
-  const data = { cat: pickCat, name: f.name.value.trim(), branch: f.branch.value, to: f.to.value.trim(), text: f.text.value.trim(), website: f.website.value };
-  msg.className = "form-msg";
-  if (!data.name || !data.text){ msg.textContent = "이름과 내용을 적어 주세요."; msg.classList.add("err"); return; }
-  const last = store.get("dk_last") || 0;
-  const wait = Math.ceil((10000 - (Date.now() - last)) / 1000);
-  if (wait > 0){ msg.textContent = `같은 글이 여러 번 붙는 걸 막으려고 잠깐 쉬어 가요. ${wait}초 뒤에 다시 눌러 주세요.`; msg.classList.add("err"); return; }
-  btn.disabled = true; btn.textContent = "붙이는 중…";
-  try {
-    let saved;
-    if (CONFIG.API_URL){
-      const r = await api({ action:"message", ...data });
-      if (!r.ok) throw new Error(r.error || "fail");
-      saved = r.message;
-    } else {
-      saved = { id: "local-" + Date.now(), time: new Date().toISOString(), likes:0, ...data };
-    }
-    myIds.add(saved.id); store.set("dk_mine", [...myIds]); store.set("dk_last", Date.now()); store.set("dk_cache2", null);
-    state.messages = [saved, ...state.messages.filter(m => m.id !== saved.id)];
-    wallCat = "전체"; wallSort = "new"; renderWall();
-    f.text.value = ""; f.to.value = ""; $("#msgCount").textContent = "0"; renderPick();
-    msg.textContent = data.cat === "불편해요" ? "알려 주셔서 고맙습니다. 운영진이 확인하고 답을 달아 둘게요. 잠시 뒤 새로고침 버튼을 눌러 보세요." : "붙였어요! 고맙습니다.";
-    msg.classList.add("ok");
-    store.set("dk_name", { name: data.name, branch: data.branch });
-  } catch(err){
-    msg.textContent = err.message && err.message !== "fail" && !/fetch|abort|network|json/i.test(err.message) ? err.message : "지금 사람이 많아서 잠시 늦어지고 있어요. 조금 뒤에 다시 눌러 주세요.";
-    msg.classList.add("err");
-  } finally { btn.disabled = false; btn.textContent = "붙이기"; }
-});
-(function(){ const s = store.get("dk_name"); if (s){ $("#cheerForm").name.value = s.name || ""; $("#branchSelect").value = s.branch || ""; } })();
-
-let clapPending = 0, clapTimer = null;
-$("#clapBtn").addEventListener("click", e => {
-  clapPending++; $("#clapCount").textContent = fmt(state.claps + clapPending);
-  const p = document.createElement("span"); p.className = "pop"; p.textContent = "+1";
-  const r = e.currentTarget.getBoundingClientRect(); p.style.left = (r.left + r.width/2 - 10 + (Math.random()*30-15)) + "px"; p.style.top = (r.top - 4) + "px";
-  document.body.appendChild(p); setTimeout(() => p.remove(), 800);
-  clearTimeout(clapTimer); clapTimer = setTimeout(sendClaps, 2500);
-});
-async function sendClaps(){
-  const n = Math.min(clapPending, 50); if (!n) return;
-  if (!CONFIG.API_URL){ state.claps += n; clapPending -= n; return; }
-  try { const r = await api({ action:"clap", n }); if (r.ok){ clapPending -= n; state.claps = r.claps; $("#clapCount").textContent = fmt(state.claps + clapPending); } }
-  catch(e){ clapTimer = setTimeout(sendClaps, 4000 + Math.random()*4000); }
-}
-window.addEventListener("pagehide", () => { if (clapPending && CONFIG.API_URL && navigator.sendBeacon) navigator.sendBeacon(CONFIG.API_URL, new Blob([JSON.stringify({action:"clap", n: Math.min(clapPending,50)})], {type:"text/plain"})); });
+renderLogos();
 
 /* =====================================================================
    구글 시트 연결 (동시 접속을 고려해 캐시 · 재시도 · 분산 요청)
@@ -2001,11 +1316,9 @@ function applyData(d){
   if (d){
     if (Array.isArray(d.board) && d.board.length) state.board = d.board;
     state.awards = d.awards || []; state.sponsors = d.sponsors || [];
-    const mine = state.messages.filter(m => myIds.has(m.id) && !(d.messages||[]).some(x => x.id === m.id) && String(m.id).startsWith("local"));
-    state.messages = [...mine, ...(d.messages || [])];
-    state.claps = d.claps || 0; state.updated = d.updated || null; state.live = true;
+    state.updated = d.updated || null; state.live = true;
   }
-  renderBoard(); renderAwards(); renderSponsors(); renderWall();
+  renderBoard(); renderAwards();
   if (location.hash === "#board" && !$("#board").classList.contains("hide")) renderBoard();
 }
 /* 동시 접속 대비
@@ -2015,7 +1328,7 @@ function applyData(d){
    - 연결이 안 돼도 페이지 자체와 게시판 기본 글은 그대로 보여요. */
 let loading = false;
 async function loadData(force){
-  if (!CONFIG.API_URL){ $("#previewNote").classList.remove("hide"); applyData(null); return; }
+  if (!CONFIG.API_URL){ applyData(null); return; }
   if (loading) return null;
   const cached = store.get("dk_cache2");
   if (cached && cached.d){ applyData(cached.d); if (!force && Date.now() - cached.t < 60000) return; }
@@ -2035,15 +1348,6 @@ async function loadData(force){
   } finally { loading = false; }
 }
 setTimeout(loadData, 300 + Math.random() * 3200);
-$("#wallRefresh").addEventListener("click", async e => {
-  const b = e.currentTarget, m = $("#refreshMsg");
-  if (!CONFIG.API_URL){ m.textContent = "미리보기 화면에서는 새로고침할 내용이 없어요."; return; }
-  b.disabled = true; b.textContent = "불러오는 중…"; m.textContent = "";
-  const ok = await loadData(true);
-  b.disabled = false; b.textContent = "새로고침";
-  const hh = new Date().toLocaleTimeString("ko-KR", { hour:"2-digit", minute:"2-digit" });
-  m.textContent = ok === false ? "지금 사람이 많아 늦어지고 있어요. 조금 뒤에 다시 눌러 주세요." : `${hh} 기준 최신 내용으로 바꿨어요.`;
-});
 // 화면을 켜 두면 4~5분마다 새로 불러와요 (사람마다 시점이 달라서 몰리지 않아요)
 (function tick(){ setTimeout(() => { if (CONFIG.API_URL && document.visibilityState === "visible") loadData(true); tick(); }, 240000 + Math.random() * 60000); })();
 // 다른 앱 보다가 다시 돌아오면, 오래됐을 때만 새로 불러와요
@@ -2053,83 +1357,6 @@ document.addEventListener("visibilitychange", () => { if (document.visibilitySta
 $("#branchList").innerHTML = BRANCHES.map(([n, head, org, mgr, tel]) => `
   <li><div class="bn"><b>${n}</b><span>지회장 ${head}</span><span>${org} · ${mgr} 사무국장</span></div>
   <a href="tel:${tel}"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>${tel}</a></li>`).join("");
-
-/* =====================================================================
-   참가 현황
-   ===================================================================== */
-(function(){
-  const BLOCK = /(이름|성명|성함|연락처|전화|휴대|핸드폰|폰|생년|생일|주민|주소|이메일|메일)/;
-  const lines = PARTICIPANT_DATA.replace(/\r/g, "").split("\n").filter(l => l.trim() !== "");
-  const box = $("#charts");
-  if (lines.length < 2){ box.innerHTML = '<div class="empty">참가 현황은 곧 공개됩니다.</div>'; $("#statUpdated").textContent = ""; return; }
-  const split = l => l.split("\t").map(v => v.replace(/^"|"$/g, "").trim());
-  const header = split(lines[0]);
-  const keep = header.map((h,i) => (h && !BLOCK.test(h) ? i : -1)).filter(i => i >= 0);
-  const cols = keep.map(i => header[i]);
-  const rows = lines.slice(1).map(split).map(r => keep.map(i => r[i] || "(미입력)"));
-  const filter = cols.map(() => "");
-  let asTable = false;
-  $("#statUpdated").innerHTML = esc(CONFIG.STAT_UPDATED) + (CONFIG.STAT_IS_SAMPLE ? '<span class="sample">예시 데이터</span>' : "");
-
-  const fwrap = $("#filters");
-  const selects = cols.map((c, ci) => {
-    const vals = [...new Set(rows.map(r => r[ci]))].sort((a,b) => a.localeCompare(b, "ko"));
-    const lab = document.createElement("label"); lab.textContent = c;
-    const s = document.createElement("select");
-    s.innerHTML = `<option value="">전체</option>` + vals.map(v => `<option>${esc(v)}</option>`).join("");
-    s.addEventListener("change", () => { filter[ci] = s.value; render(); });
-    lab.appendChild(s); fwrap.appendChild(lab); return s;
-  });
-  const row = document.createElement("div"); row.className = "row";
-  const mk = (t, fn) => { const b = document.createElement("button"); b.type = "button"; b.className = "btn"; b.textContent = t; b.onclick = fn; return b; };
-  const toggle = mk("표로 보기", () => { asTable = !asTable; toggle.textContent = asTable ? "그래프로 보기" : "표로 보기"; render(); });
-  row.append(mk("처음으로", () => { filter.fill(""); selects.forEach(s => s.value = ""); render(); }), toggle);
-  fwrap.appendChild(row);
-
-  const pass = (r, skip) => filter.every((f,i) => i === skip || !f || r[i] === f);
-  const tip = $("#tip");
-  const showTip = (e, h) => { tip.innerHTML = h; tip.classList.add("show"); tip.style.left = Math.max(8, Math.min(e.clientX + 12, innerWidth - tip.offsetWidth - 8)) + "px"; tip.style.top = (e.clientY - 38) + "px"; };
-  const hideTip = () => tip.classList.remove("show");
-
-  function render(){
-    const shown = rows.filter(r => pass(r, -1));
-    $("#total").textContent = fmt(shown.length);
-    const act = filter.filter(Boolean);
-    $("#totalLabel").textContent = act.length ? `${act.join(" · ")} 참가자` : "전체 참가자";
-    box.innerHTML = "";
-    cols.forEach((c, ci) => {
-      const base = rows.filter(r => pass(r, ci)), cnt = {};
-      base.forEach(r => cnt[r[ci]] = (cnt[r[ci]] || 0) + 1);
-      const items = Object.entries(cnt).sort((a,b) => b[1] - a[1] || a[0].localeCompare(b[0], "ko"));
-      const max = Math.max(1, ...items.map(i => i[1])), sum = base.length || 1;
-      const card = document.createElement("div");
-      card.className = "chart" + (items.length > 8 ? " wide" : "");
-      card.innerHTML = `<h3>${esc(c)}별<span>${items.length}개</span></h3>`;
-      if (!items.length){ card.innerHTML += '<div class="empty">해당하는 참가자가 없어요</div>'; box.appendChild(card); return; }
-      if (asTable){
-        card.innerHTML += `<table class="tbl"><thead><tr><th>${esc(c)}</th><th>인원</th><th>비율</th></tr></thead><tbody>` +
-          items.map(([k,v]) => `<tr><td>${esc(k)}</td><td>${fmt(v)}명</td><td>${(v/sum*100).toFixed(1)}%</td></tr>`).join("") +
-          `</tbody><tfoot><tr><th>합계</th><th style="text-align:right">${fmt(base.length)}명</th><th style="text-align:right">100%</th></tr></tfoot></table>`;
-      } else {
-        const bars = document.createElement("div"); bars.className = "bars";
-        items.forEach(([k,v]) => {
-          const pct = (v/sum*100).toFixed(1), b = document.createElement("button");
-          b.type = "button";
-          b.className = "bar-row" + (filter[ci] ? (filter[ci] === k ? " sel" : " dim") : "");
-          b.setAttribute("aria-label", `${c} ${k}: ${v}명, ${pct}%`);
-          b.innerHTML = `<span class="bar-label">${esc(k)}</span><span class="bar-track"><span class="bar-fill" style="width:${(v/max)*70}%"></span><span class="bar-val">${fmt(v)}명<em>${pct}%</em></span></span>`;
-          b.addEventListener("mousemove", e => showTip(e, `<b>${esc(k)}</b> · ${fmt(v)}명 (${pct}%)`));
-          b.addEventListener("mouseleave", hideTip);
-          b.addEventListener("click", () => { hideTip(); filter[ci] = filter[ci] === k ? "" : k; selects[ci].value = filter[ci]; render(); });
-          bars.appendChild(b);
-        });
-        card.appendChild(bars);
-      }
-      box.appendChild(card);
-    });
-  }
-  render();
-})();
 
 /* 메뉴를 눌러도 주소 뒤에 #이 붙지 않게 (공유·새로고침 때 항상 첫 화면부터 열리도록) */
 document.addEventListener("click", e => {
