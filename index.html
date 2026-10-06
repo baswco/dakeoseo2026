@@ -127,6 +127,14 @@ button{font-family:inherit}
 .booths i{flex:none;width:28px;height:28px;border-radius:8px;background:var(--blue-soft);color:#2677ad;font-style:normal;font-family:var(--display);font-size:16px;display:grid;place-items:center;margin-top:1px}
 .booths b{display:block;font-size:16px}
 .booths span{display:block;font-size:14.5px;color:var(--ink-2);line-height:1.55}
+.bring{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bring li{border-radius:16px;padding:16px 12px 14px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px}
+.bring li.o{background:var(--orange-soft)}.bring li.b{background:var(--blue-soft)}.bring li.g{background:var(--green-soft)}.bring li.r{background:var(--track-soft)}
+.bring .bi{font-size:46px;line-height:1.1;margin-bottom:6px;letter-spacing:-4px}
+.bring b{font-size:16.5px;line-height:1.35}
+.bring small{font-size:13px;font-weight:800;color:var(--track)}
+.bring .bd{font-size:13.5px;color:var(--ink-2);line-height:1.5;margin-top:4px}
+@media (min-width:1024px){.bring .bi{font-size:52px}}
 .timeline-mini{list-style:none;margin:0;padding:0}
 .timeline-mini li{display:grid;grid-template-columns:auto 40px 1fr;gap:8px;align-items:baseline;padding:9px 0;border-bottom:1px dashed var(--line)}
 .timeline-mini li:last-child{border-bottom:0}
@@ -158,6 +166,10 @@ button{font-family:inherit}
 .ap-ok{background:#e3f3e6;border:2px solid var(--green);color:#1f5a30}
 .ap-no{background:var(--track-soft);border:2px solid var(--track);color:#9a3216}
 .ap-wait{background:var(--sky-3);border:2px solid var(--line-2);color:var(--ink-2)}
+#apply .sec-head,#apply>.note{text-align:center}
+#apply .apply-box{max-width:640px;margin-left:auto;margin-right:auto}
+#apply .apply-form{max-width:none}
+#apply .apply-box>.note{text-align:center}
 /* 찬조처 로고 */
 .thanks-title{text-align:center;font-family:var(--display);font-size:24px;margin:4px 0 16px}
 .logo-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
@@ -687,12 +699,12 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
 
   <div class="card">
     <h3>챙겨오세요 · 지켜주세요</h3>
-    <ol class="steps emo">
-      <li><b><i>🍜</i>라면 챙겨오기 (1인 1개 이상)</b><span>나누는 라면으로 푸드뱅크에 기부돼요!</span></li>
-      <li><b><i>👕👟</i>편한 옷, 편한 신발</b><span>운동회에 맞게 편하게 와 주세요.</span></li>
-      <li><b><i>🚇🚌</i>대중교통 이용</b><span>주차공간이 매우매우 협소합니다.</span></li>
-      <li><b><i>🚫</i>화기 및 취사금지</b><span>안전사고 예방을 위해 절대 금지됩니다.</span></li>
-    </ol>
+    <ul class="bring">
+      <li class="o"><span class="bi">🍜</span><b>라면 챙겨오기</b><small>1인 1개 이상</small><span class="bd">나누는 라면으로 푸드뱅크에 기부돼요!</span></li>
+      <li class="b"><span class="bi">👕👟</span><b>편한 옷, 편한 신발</b><span class="bd">운동회에 맞게 편하게 와 주세요.</span></li>
+      <li class="g"><span class="bi">🚇🚌</span><b>대중교통 이용</b><span class="bd">주차공간이 매우매우 협소합니다.</span></li>
+      <li class="r"><span class="bi">🚫</span><b>화기 및 취사금지</b><span class="bd">안전사고 예방을 위해 절대 금지됩니다.</span></li>
+    </ul>
   </div>
 
   <div class="card full note-card">
