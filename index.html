@@ -122,10 +122,13 @@ button{font-family:inherit}
 .steps.emo b i{font-style:normal;margin-right:6px}
 .h-tag.blue{background:var(--blue)}
 .booths{list-style:none;margin:0;padding:0}
-.booths li{display:flex;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.booths li{display:flex;gap:14px;align-items:center;padding:12px 0;border-bottom:1px dashed var(--line)}
+.booths .bimg{flex:none;width:88px;height:88px;object-fit:cover;border-radius:14px;border:1.5px solid var(--line);background:#fff}
+.booths .bn{display:inline-grid!important;vertical-align:1px;margin:0 6px 0 0!important;width:22px!important;height:22px!important;font-size:13px!important;border-radius:6px!important}
+@media (min-width:600px){.booths{display:grid;grid-template-columns:1fr 1fr;column-gap:24px}.booths li:nth-last-child(2){border-bottom:0}.booths .bimg{width:104px;height:104px}}
 .booths li:last-child{border-bottom:0;padding-bottom:0}
 .booths i{flex:none;width:28px;height:28px;border-radius:8px;background:var(--blue-soft);color:#2677ad;font-style:normal;font-family:var(--display);font-size:16px;display:grid;place-items:center;margin-top:1px}
-.booths b{display:block;font-size:16px}
+.booths b{display:inline;font-size:16px}
 .booths span{display:block;font-size:14.5px;color:var(--ink-2);line-height:1.55}
 .bring{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .bring li{border-radius:16px;padding:16px 12px 14px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px}
@@ -655,7 +658,6 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
   <p>마지막으로 뛰었던 기억이 언제지,,?<br>'지각할 거 같을 때?', '초록불 신호 몇 초 안 남았을 때?'</p>
   <p>어린 시절 운동회의 기억을 살려<br>본격적으로 뛰어 보는 시간,<br>우리 협회에서 판 깔아 드립니다!</p>
   <p>👶 다 커서 사회복지사가 된 우리 🧑<br>이날 함께 즐겁게 뛰어 봐요!</p>
-  <p class="intro-end">가기 싫지만 오면 재밌는 체육대회!<br><b>COMING SOON 🏃‍♂️💨</b></p>
 </div>
 
 <!-- ============ 행사 안내 ============ -->
@@ -724,7 +726,7 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
   </div>
 
   <div class="card">
-    <h3>챙겨오세요 · 지켜주세요</h3>
+    <h3>행사 준비물 · 주의사항</h3>
     <ul class="bring">
       <li class="o"><span class="bi">🍜</span><b>라면 챙겨오기</b><small>1인 1개 이상</small><span class="bd">나누는 라면으로 푸드뱅크에 기부돼요!</span></li>
       <li class="b"><span class="bi">👕👟</span><b>편한 옷, 편한 신발</b><span class="bd">운동회에 맞게 편하게 와 주세요.</span></li>
@@ -833,12 +835,12 @@ footer img.logo{height:28px;width:auto;margin:16px auto 8px;mix-blend-mode:multi
     <h3>참여부스 안내 <span class="h-tag blue">10:00~12:30</span></h3>
     <p class="muted small" style="margin:-4px 0 10px">에어바운스는 운동장 왼쪽 농구장, 나머지 부스는 운동장 오른쪽에 있어요.</p>
     <ul class="booths">
-      <li><i>1</i><div><b>에어바운스</b><span>동반 자녀를 위한 에어바운스, 행사 종료 시까지 운영해요.</span></div></li>
-      <li><i>2</i><div><b>10초를 잡아라</b><span>정확히 10초에 스톱워치를 멈추는 게임! 기회는 1번, 다시 줄 서서 재도전할 수 있어요.</span></div></li>
-      <li><i>3</i><div><b>스피드 스틱잡기</b><span>무작위로 떨어지는 스틱을 빠르게 잡아요. 잡은 개수에 따라 상품을 드려요.</span></div></li>
-      <li><i>4</i><div><b>참참 링던지기</b><span>영도시니어클럽 참기름·참깨를 걸고 링을 던져요. 성공한 개수에 따라 상품 증정!</span></div></li>
-      <li><i>5</i><div><b>인생네컷</b><span>'다커서 운동회' 기념사진을 찍어 가세요.</span></div></li>
-      <li><i>6</i><div><b>청년위원회 '야르展 · 샤갈展'</b><span>현장의 닮고 싶은 선배와 닮고 싶지 않은 선배 미니 전시, 관람하고 참여해요.</span></div></li>
+      <li><img class="bimg" src="images/booths/airbounce.jpg" alt="" loading="lazy" decoding="async"><div><i class="bn">1</i><b>에어바운스</b><span>동반 자녀를 위한 에어바운스, 행사 종료 시까지 운영해요.</span></div></li>
+      <li><img class="bimg" src="images/booths/10sec.jpg" alt="" loading="lazy" decoding="async"><div><i class="bn">2</i><b>10초를 잡아라</b><span>정확히 10초에 스톱워치를 멈추는 게임! 기회는 1번, 다시 줄 서서 재도전할 수 있어요.</span></div></li>
+      <li><img class="bimg" src="images/booths/stick.jpg" alt="" loading="lazy" decoding="async"><div><i class="bn">3</i><b>스피드 스틱잡기</b><span>무작위로 떨어지는 스틱을 빠르게 잡아요. 잡은 개수에 따라 상품을 드려요.</span></div></li>
+      <li><img class="bimg" src="images/booths/ringtoss.jpg" alt="" loading="lazy" decoding="async"><div><i class="bn">4</i><b>참참 링던지기</b><span>영도시니어클럽 참기름·참깨를 걸고 링을 던져요. 성공한 개수에 따라 상품 증정!</span></div></li>
+      <li><img class="bimg" src="images/booths/photo4cut.jpg" alt="" loading="lazy" decoding="async"><div><i class="bn">5</i><b>인생네컷</b><span>'다커서 운동회' 기념사진을 찍어 가세요.</span></div></li>
+      <li><img class="bimg" src="images/booths/yarjeon.jpg" alt="" loading="lazy" decoding="async"><div><i class="bn">6</i><b>청년위원회 '야르展 · 샤갈展'</b><span>현장의 닮고 싶은 선배와 닮고 싶지 않은 선배 미니 전시, 관람하고 참여해요.</span></div></li>
     </ul>
   </div>
 
