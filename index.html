@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="build" content="202610191346">
+<meta name="build" content="202610191352">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -742,7 +742,8 @@ footer img.logo{margin-top:18px}
 .sp-org{display:flex;flex-direction:column;align-items:center;gap:6px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px 8px 8px;min-width:0}
 .sp-logo{height:56px;width:100%;display:flex;align-items:center;justify-content:center}
 .sp-logo img{max-height:100%;max-width:100%;object-fit:contain}
-.sp-text{font-weight:800;font-size:14px;color:#2c313b;text-align:center;word-break:keep-all;line-height:1.35;background:var(--sky-3,#f2f8fc);border-radius:8px;padding:0 6px}
+.sp-text{font-weight:800;font-size:15px;color:#2c313b;text-align:center;word-break:keep-all;line-height:1.4;padding:0 4px;height:auto;flex:1}
+.sp-org:has(.sp-text){justify-content:center}
 .sp-name{font-size:12px;color:var(--ink-3);text-align:center;word-break:keep-all;overflow-wrap:anywhere;line-height:1.35;max-width:100%}
 .sp-chip span{min-width:0;overflow-wrap:anywhere}
 .sp-chips{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
@@ -1375,7 +1376,7 @@ renderAwards();
   const by = g => SPONSORS.filter(s => s.g === g).sort((a,b) => ko(a.name,b.name));
   const sym = `<img class="sp-sym" src="${BASW_SYMBOL}" alt="" aria-hidden="true">`;
   const groups = [
-    { g:"org", title:"기관 · 단체", html: by("org").map(s => `<li class="sp-org">${s.img ? `<span class="sp-logo"><img src="${s.img}" alt="${esc(s.name)} 로고" loading="lazy" decoding="async"></span>` : `<span class="sp-logo sp-text">${esc(s.name)}</span>`}<span class="sp-name">${esc(s.name)}</span></li>`).join(""), cls:"sp-orgs" },
+    { g:"org", title:"기관 · 단체", html: by("org").map(s => `<li class="sp-org">${s.img ? `<span class="sp-logo"><img src="${s.img}" alt="${esc(s.name)} 로고" loading="lazy" decoding="async"></span>` : `<span class="sp-logo sp-text">${esc(s.name)}</span>`}${s.img ? `<span class="sp-name">${esc(s.name)}</span>` : ""}</li>`).join(""), cls:"sp-orgs" },
     { g:"province", title:"시 · 도 사회복지사협회", html: by("province").map(s => `<li class="sp-chip">${sym}<span>${esc(s.name)}</span></li>`).join(""), cls:"sp-chips" },
     { g:"branch", title:"부산광역시사회복지사협회 구(군)지회", html: by("branch").map(s => `<li class="sp-chip">${sym}<span>${esc(s.name)}</span></li>`).join(""), cls:"sp-chips sp-3" },
     { g:"person", title:"개인 · 동호회", html: by("person").map(s => `<li class="sp-chip">${sym}<span>${esc(s.name).replace(/\s*(\([^)]*\))/g, ' <span class="nw">$1</span>')}</span></li>`).join(""), cls:"sp-chips" },
@@ -1424,7 +1425,7 @@ document.addEventListener("click", e => {
 </script>
 <script>
 /* 새 버전 자동 확인: 카카오톡 등에서 예전 화면이 남아 있으면 최신 화면으로 바꿈 */
-(function(){var B="202610191346",ss=null;try{ss=window.sessionStorage}catch(e){}
+(function(){var B="202610191352",ss=null;try{ss=window.sessionStorage}catch(e){}
 if(!window.fetch||!window.TextDecoder)return;
 fetch(location.pathname+"?nc="+Date.now(),{cache:"no-store"}).then(function(r){
  if(!r.ok||!r.body)return null;var rd=r.body.getReader(),dec=new TextDecoder(),s="";
