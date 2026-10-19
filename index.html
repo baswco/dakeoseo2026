@@ -2,6 +2,10 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="build" content="202610191326">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#cce8f3">
 <title>다커서 운동회 · 2026 부산 사회복지사대회</title>
@@ -728,6 +732,15 @@ footer{margin-top:40px}
 .call.sm .call-ic svg{width:12px;height:12px}
 
 footer img.logo{margin-top:18px}
+/* 수상자 명단: 휴대폰은 한 사람당 한 줄 */
+.awardee .org .nw{white-space:nowrap}
+@media (max-width:599px){
+ .awardees{grid-template-columns:1fr!important;gap:0!important}
+ .awardee{flex-direction:row!important;align-items:baseline;gap:12px!important;border:0!important;border-bottom:1px dashed var(--line)!important;border-radius:0!important;padding:10px 2px!important;background:none!important}
+ .awardee:last-child{border-bottom:0!important}
+ .awardee b{flex:0 0 3.4em;font-size:16px}
+ .awardee span.org{flex:1;min-width:0;font-size:clamp(13px,3.7vw,14.5px);line-height:1.45;word-break:keep-all;overflow-wrap:normal}
+}
 </style>
 </head>
 <body>
@@ -871,7 +884,7 @@ footer img.logo{margin-top:18px}
     <h3>참고사항</h3>
     <ul class="dot-list">
       <li>참가자 전원 상해보험 가입 예정<br><span class="muted">＊의료부스 별도 운영</span></li>
-      <li>셔틀버스 2대 상시 운행<br><span class="muted">07:30~09:30 · 1호선 장전역 4번 출구 ↔ 행사장</span></li>
+      <li>셔틀버스 2대 상시 운행 (07:30~09:30)<br><span class="muted" style="white-space:nowrap">1호선 장전역 4번 출구 ↔ 행사장</span></li>
       <li>동반 가족을 위한 에어바운스 등 놀이시설 운영</li>
       <li>깨끗한 행사장 조성을 위해 협조 바랍니다.</li>
     </ul>
@@ -1273,7 +1286,7 @@ function renderAwards(){
   $("#awardList").innerHTML = AWARD_ORDER.filter(g => g.tab === awardTab).map(g => {
     const people = AWARDS.filter(a => a[0] === g.key).sort((a,b) => ko(a[1],b[1]) || ko(a[2],b[2]));
     return `<div class="award-group card" style="--ac:${g.color}"><div class="award-head"><h3><mark>${esc(g.key)}</mark></h3><span>${people.length}명</span></div>
-      <ul class="awardees">${people.map(p => `<li class="awardee"><b>${esc(p[1])}</b><span>${esc(p[2])}</span></li>`).join("")}</ul></div>`;
+      <ul class="awardees">${people.map(p => `<li class="awardee"><b>${esc(p[1])}</b><span class="org">${esc(p[2]).replace(/\s*(\([^)]*\))/g, ' <span class="nw">$1</span>')}</span></li>`).join("")}</ul></div>`;
   }).join("");
 }
 $("#awardTabs").addEventListener("click", e => { const t = e.target.closest("[data-atab]"); if (!t) return; awardTab = t.dataset.atab; renderAwards(); });
@@ -1320,6 +1333,18 @@ document.addEventListener("click", e => {
   o.innerHTML = `<img src="${z.currentSrc || z.src}" alt=""><button type="button" aria-label="닫기">✕</button><p>두 손가락으로 확대할 수 있습니다</p>`;
   o.addEventListener("click", () => o.remove()); document.body.appendChild(o);
 });
+</script>
+<script>
+/* 새 버전 자동 확인: 카카오톡 등에서 예전 화면이 남아 있으면 최신 화면으로 바꿈 */
+(function(){var B="202610191326",ss=null;try{ss=window.sessionStorage}catch(e){}
+if(!window.fetch||!window.TextDecoder)return;
+fetch(location.pathname+"?nc="+Date.now(),{cache:"no-store"}).then(function(r){
+ if(!r.ok||!r.body)return null;var rd=r.body.getReader(),dec=new TextDecoder(),s="";
+ function pump(){return rd.read().then(function(x){if(x.done)return null;s+=dec.decode(x.value,{stream:true});
+  var m=s.match(/name="build" content="(\d+)"/);if(m){try{rd.cancel()}catch(e){}return m[1]}
+  if(s.length>30000){try{rd.cancel()}catch(e){}return null}return pump()})}return pump()
+}).then(function(v){if(!v||v===B)return;try{if(ss&&ss.getItem("vtry")===v)return;ss&&ss.setItem("vtry",v)}catch(e){}
+ location.replace(location.pathname+"?v="+v+location.hash)}).catch(function(){})})();
 </script>
 </body>
 </html>
