@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="build" content="202610191352">
+<meta name="build" content="202610191400">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -732,7 +732,18 @@ footer{margin-top:40px}
 .call.sm .call-ic svg{width:12px;height:12px}
 
 footer img.logo{margin-top:18px}
+/* 좁은 화면 넘침 방지 */
+.award-head h3{min-width:0;word-break:keep-all}
+.award-head>span{flex:none}
+.call.sm{padding:10px 8px 10px 10px}
+.call.sm b{display:flex;align-items:center;gap:6px;min-width:0}
+.call.sm em{padding-left:1px;font-size:clamp(13px,3.7vw,14px)}
+.call.sm .call-ic{width:20px;height:20px;flex:none}
+.shuttle-line{white-space:nowrap;font-size:clamp(12.5px,4vw,15px)}
+@media (max-width:380px){.tt li{grid-template-columns:96px minmax(0,1fr)!important}.tt .w small{font-size:11.5px}.tt .w small .nw{display:inline;white-space:normal}.tt .w{overflow-wrap:anywhere}}
 /* 찬조처 */
+body{overflow-wrap:break-word}
+.sp-org>*{max-width:100%}
 .sp-total{text-align:center;margin:0 0 16px;font-size:15px;color:var(--ink-2);word-break:keep-all}
 .sp-total b{color:var(--track);font-size:18px}
 .sp-group+.sp-group{margin-top:22px}
@@ -742,7 +753,7 @@ footer img.logo{margin-top:18px}
 .sp-org{display:flex;flex-direction:column;align-items:center;gap:6px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px 8px 8px;min-width:0}
 .sp-logo{height:56px;width:100%;display:flex;align-items:center;justify-content:center}
 .sp-logo img{max-height:100%;max-width:100%;object-fit:contain}
-.sp-text{font-weight:800;font-size:15px;color:#2c313b;text-align:center;word-break:keep-all;line-height:1.4;padding:0 4px;height:auto;flex:1}
+.sp-text{font-weight:800;font-size:clamp(13px,3.8vw,15px);overflow-wrap:anywhere;min-width:0;max-width:100%;color:#2c313b;text-align:center;word-break:keep-all;line-height:1.4;padding:0 4px;height:auto;flex:1}
 .sp-org:has(.sp-text){justify-content:center}
 .sp-name{font-size:12px;color:var(--ink-3);text-align:center;word-break:keep-all;overflow-wrap:anywhere;line-height:1.35;max-width:100%}
 .sp-chip span{min-width:0;overflow-wrap:anywhere}
@@ -767,7 +778,7 @@ footer img.logo{margin-top:18px}
  .awardee{flex-direction:row!important;align-items:baseline;gap:12px!important;border:0!important;border-bottom:1px dashed var(--line)!important;border-radius:0!important;padding:10px 2px!important;background:none!important}
  .awardee:last-child{border-bottom:0!important}
  .awardee b{flex:0 0 3.4em;font-size:16px}
- .awardee span.org{flex:1;min-width:0;font-size:clamp(13px,3.7vw,14.5px);line-height:1.45;word-break:keep-all;overflow-wrap:normal}
+ .awardee span.org{flex:1;min-width:0;font-size:clamp(13px,3.7vw,14.5px);line-height:1.45;word-break:keep-all;overflow-wrap:anywhere}
 }
 </style>
 </head>
@@ -912,7 +923,7 @@ footer img.logo{margin-top:18px}
     <h3>참고사항</h3>
     <ul class="dot-list">
       <li>참가자 전원 상해보험 가입 예정<br><span class="muted">＊의료부스 별도 운영</span></li>
-      <li>셔틀버스 2대 상시 운행 (07:30~09:30)<br><span class="muted" style="white-space:nowrap">1호선 장전역 4번 출구 ↔ 행사장</span></li>
+      <li>셔틀버스 2대 상시 운행 (07:30~09:30)<br><span class="muted shuttle-line">1호선 장전역 4번 출구 ↔ 행사장</span></li>
       <li>동반 가족을 위한 에어바운스 등 놀이시설 운영</li>
       <li>깨끗한 행사장 조성을 위해 협조 바랍니다.</li>
     </ul>
@@ -1364,7 +1375,7 @@ function renderAwards(){
   $("#awardTabs").querySelectorAll(".tab").forEach(x => x.setAttribute("aria-selected", x.dataset.atab === awardTab));
   $("#awardList").innerHTML = AWARD_ORDER.filter(g => g.tab === awardTab).map(g => {
     const people = AWARDS.filter(a => a[0] === g.key).sort((a,b) => ko(a[1],b[1]) || ko(a[2],b[2]));
-    return `<div class="award-group card" style="--ac:${g.color}"><div class="award-head"><h3><mark>${esc(g.key)}</mark></h3><span>${people.length}명</span></div>
+    return `<div class="award-group card" style="--ac:${g.color}"><div class="award-head"><h3><mark>${esc(g.key).replace(/(사회복지사협회장상|의회의장상|광역시장상)$/, "<wbr>$1")}</mark></h3><span>${people.length}명</span></div>
       <ul class="awardees">${people.map(p => `<li class="awardee"><b>${esc(p[1])}</b><span class="org">${esc(p[2]).replace(/\s*(\([^)]*\))/g, ' <span class="nw">$1</span>')}</span></li>`).join("")}</ul></div>`;
   }).join("");
 }
@@ -1374,10 +1385,12 @@ renderAwards();
 /* 찬조처 로고 */
 (() => {
   const by = g => SPONSORS.filter(s => s.g === g).sort((a,b) => ko(a.name,b.name));
+  const SUF = ["장애인직업재활시설협회","주간이용시설협회","재가노인복지협회","장애인종합복지관","사회복지사협회","사회복지관협회","사회복지협의회","종합사회복지관","통합돌봄센터","복지관협회","치과병원","협동조합","안과","치과","들찬빛"];
+  const brk = n => { const t = esc(n); for (const s of SUF) { const i = t.lastIndexOf(s); if (i > 0) return t.slice(0, i) + "<wbr>" + t.slice(i); } return t; };
   const sym = `<img class="sp-sym" src="${BASW_SYMBOL}" alt="" aria-hidden="true">`;
   const groups = [
-    { g:"org", title:"기관 · 단체", html: by("org").map(s => `<li class="sp-org">${s.img ? `<span class="sp-logo"><img src="${s.img}" alt="${esc(s.name)} 로고" loading="lazy" decoding="async"></span>` : `<span class="sp-logo sp-text">${esc(s.name)}</span>`}${s.img ? `<span class="sp-name">${esc(s.name)}</span>` : ""}</li>`).join(""), cls:"sp-orgs" },
-    { g:"province", title:"시 · 도 사회복지사협회", html: by("province").map(s => `<li class="sp-chip">${sym}<span>${esc(s.name)}</span></li>`).join(""), cls:"sp-chips" },
+    { g:"org", title:"기관 · 단체", html: by("org").map(s => `<li class="sp-org">${s.img ? `<span class="sp-logo"><img src="${s.img}" alt="${esc(s.name)} 로고" loading="lazy" decoding="async"></span>` : `<span class="sp-logo sp-text">${brk(s.name)}</span>`}${s.img ? `<span class="sp-name">${brk(s.name)}</span>` : ""}</li>`).join(""), cls:"sp-orgs" },
+    { g:"province", title:"시 · 도 사회복지사협회", html: by("province").map(s => `<li class="sp-chip">${sym}<span>${brk(s.name)}</span></li>`).join(""), cls:"sp-chips" },
     { g:"branch", title:"부산광역시사회복지사협회 구(군)지회", html: by("branch").map(s => `<li class="sp-chip">${sym}<span>${esc(s.name)}</span></li>`).join(""), cls:"sp-chips sp-3" },
     { g:"person", title:"개인 · 동호회", html: by("person").map(s => `<li class="sp-chip">${sym}<span>${esc(s.name).replace(/\s*(\([^)]*\))/g, ' <span class="nw">$1</span>')}</span></li>`).join(""), cls:"sp-chips" },
   ];
@@ -1391,7 +1404,7 @@ $("#parkList").innerHTML = PARKINGS.map(p => { const q = encodeURIComponent(p.se
   <div class="btns"><a class="btn kakao" href="https://map.kakao.com/link/search/${q}" target="_blank" rel="noopener">카카오맵</a><a class="btn naver" href="https://map.naver.com/p/search/${q}" target="_blank" rel="noopener">네이버지도</a></div></li>`; }).join("");
 
 /* 지회 연락처 */
-$("#branchList").innerHTML = BRANCHES.map(([n, tel]) => `<li><a class="call sm" href="tel:${tel}" aria-label="${n} 전화 걸기"><b>${n}</b><em><span class="call-ic">${PHONE_SVG}</span>${tel}</em></a></li>`).join("");
+$("#branchList").innerHTML = BRANCHES.map(([n, tel]) => `<li><a class="call sm" href="tel:${tel}" aria-label="${n} 전화 걸기"><b><span class="call-ic">${PHONE_SVG}</span>${n}</b><em>${tel}</em></a></li>`).join("");
 
 /* 메뉴 강조 · 부드러운 이동 (주소 뒤에 #이 붙지 않게) */
 (function(){
@@ -1425,7 +1438,7 @@ document.addEventListener("click", e => {
 </script>
 <script>
 /* 새 버전 자동 확인: 카카오톡 등에서 예전 화면이 남아 있으면 최신 화면으로 바꿈 */
-(function(){var B="202610191352",ss=null;try{ss=window.sessionStorage}catch(e){}
+(function(){var B="202610191400",ss=null;try{ss=window.sessionStorage}catch(e){}
 if(!window.fetch||!window.TextDecoder)return;
 fetch(location.pathname+"?nc="+Date.now(),{cache:"no-store"}).then(function(r){
  if(!r.ok||!r.body)return null;var rd=r.body.getReader(),dec=new TextDecoder(),s="";
