@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="build" content="202610260957">
+<meta name="build" content="202610261010">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -1459,7 +1459,7 @@ renderAwards();
 /* 주차 안내 */
 const PARKINGS = [
   { name:"로사리오관", desc:"주차면 가장 많음", hot:true, search:"부산가톨릭대학교 로사리오관" },
-  { name:"대학본부관", search:"부산가톨릭대학교 대학본부" },
+  { name:"대학본부관", search:"부산가톨릭대학교 대학본부", kakao:"https://map.kakao.com/link/map/대학본부관 주차장,35.2459375,129.0989375" },
   { name:"사피엔스관", search:"부산가톨릭대학교 사피엔스관" },
   { name:"정보공학관", search:"부산가톨릭대학교 정보공학관" },
   { name:"베리타스센터", search:"부산가톨릭대학교 베리타스센터" },
@@ -1468,7 +1468,7 @@ const PARKINGS = [
 ];
 $("#parkList").innerHTML = PARKINGS.map(p => { const q = encodeURIComponent(p.search);
   return `<li><div class="pk-t"><span class="pk-p">P</span><div><b>${esc(p.name)}</b>${p.desc ? `<small${p.hot ? ' class="hot"' : ""}>${esc(p.desc)}</small>` : ""}</div></div>
-  <div class="btns"><a class="btn kakao" href="https://map.kakao.com/link/search/${q}" target="_blank" rel="noopener">카카오</a><a class="btn naver" href="https://map.naver.com/p/search/${q}" target="_blank" rel="noopener">네이버</a></div></li>`; }).join("");
+  <div class="btns"><a class="btn kakao" href="${p.kakao || "https://map.kakao.com/link/search/" + q}" target="_blank" rel="noopener">카카오</a><a class="btn naver" href="https://map.naver.com/p/search/${q}" target="_blank" rel="noopener">네이버</a></div></li>`; }).join("");
 
 /* 지회 연락처 */
 $("#branchList").innerHTML = BRANCHES.map(([n, tel]) => `<li><a class="call sm" href="tel:${tel}" aria-label="${n} 전화 걸기"><b><span class="call-ic">${PHONE_SVG}</span>${n}</b><em>${tel}</em></a></li>`).join("");
@@ -1505,7 +1505,7 @@ document.addEventListener("click", e => {
 </script>
 <script>
 /* 새 버전 자동 확인: 카카오톡 등에서 예전 화면이 남아 있으면 최신 화면으로 바꿈 */
-(function(){var B="202610260957",ss=null;try{ss=window.sessionStorage}catch(e){}
+(function(){var B="202610261010",ss=null;try{ss=window.sessionStorage}catch(e){}
 if(!window.fetch||!window.TextDecoder)return;
 fetch(location.pathname+"?nc="+Date.now(),{cache:"no-store"}).then(function(r){
  if(!r.ok||!r.body)return null;var rd=r.body.getReader(),dec=new TextDecoder(),s="";
