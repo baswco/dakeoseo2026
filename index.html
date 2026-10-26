@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="build" content="202610261244">
+<meta name="build" content="202610261259">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -1438,7 +1438,7 @@ let awardTab = "유공자 표창";
 function renderAwards(){
   $("#awardTabs").querySelectorAll(".tab").forEach(x => x.setAttribute("aria-selected", x.dataset.atab === awardTab));
   $("#awardList").innerHTML = AWARD_ORDER.filter(g => g.tab === awardTab).map(g => {
-    const people = AWARDS.filter(a => a[0] === g.key).sort((a,b) => ko(a[2],b[2]) || ko(a[1],b[1]));
+    const people = AWARDS.filter(a => a[0] === g.key);
     return `<div class="award-group card" style="--ac:${g.color}"><div class="award-head"><h3><mark>${esc(g.key).replace(/(사회복지사협회장상|의회의장상|광역시장상)$/, "<wbr>$1")}</mark></h3><span>${people.length}명</span></div>
       <ul class="awardees">${people.map(p => `<li class="awardee"><b>${esc(p[1])}</b><span class="org">${esc(p[2]).replace(/\s*(\([^)]*\))/g, ' <span class="nw">$1</span>')}</span></li>`).join("")}</ul></div>`;
   }).join("");
@@ -1511,7 +1511,7 @@ document.addEventListener("click", e => {
 </script>
 <script>
 /* 새 버전 자동 확인: 카카오톡 등에서 예전 화면이 남아 있으면 최신 화면으로 바꿈 */
-(function(){var B="202610261244",ss=null;try{ss=window.sessionStorage}catch(e){}
+(function(){var B="202610261259",ss=null;try{ss=window.sessionStorage}catch(e){}
 if(!window.fetch||!window.TextDecoder)return;
 fetch(location.pathname+"?nc="+Date.now(),{cache:"no-store"}).then(function(r){
  if(!r.ok||!r.body)return null;var rd=r.body.getReader(),dec=new TextDecoder(),s="";
