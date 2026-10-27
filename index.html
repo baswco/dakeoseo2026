@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="build" content="202610271516">
+<meta name="build" content="202610271717">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -766,6 +766,18 @@ footer img.logo{margin-top:18px}
 .fm-notes{margin:14px 0 0;padding-left:18px;font-size:14.5px;line-height:1.7;word-break:keep-all}
 /* 셔틀 차량번호 */
 .bus-no span{display:block;white-space:nowrap}.bus-no b{font-variant-numeric:tabular-nums;letter-spacing:.02em}
+/* 계단·인근 주차 */
+.tip-box{display:flex;align-items:center;gap:12px;margin:14px 0 0;padding:12px 14px;border-radius:14px;background:#fff4ef;border:1.5px solid #f3c2b2}
+.tip-box p{margin:0;font-size:14px;line-height:1.55;color:var(--ink-2);word-break:keep-all}
+.tip-box p b{display:block;font-size:15.5px;color:var(--ink)}
+.tip-ic{flex:none;width:44px;height:44px;border-radius:12px;background:#fff;display:grid;place-items:center;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.tip-ic svg{width:34px;height:34px}
+.near-park{margin-top:14px;padding:12px 12px 4px;border-radius:14px;background:#f2f8fc;border:1.5px solid #cfe3f2}
+.np-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.np-head b{font-size:16px}
+.np-head em{font-style:normal;font-size:12.5px;font-weight:800;color:#fff;background:#c23f1f;border-radius:999px;padding:3px 9px}
+.near-park .park-list{margin-top:10px}
+.near-park .pk-p{background:#7b8390}
 /* 주차 목록 */
 .park-list li{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 10px 10px 12px}
 .park-list .pk-t{min-width:0;gap:8px}
@@ -1120,6 +1132,10 @@ body{overflow-wrap:break-word}
     <p class="park-head">주차장 이름 옆 버튼을 누르면 지도 앱에서 바로 위치가 검색됩니다.</p>
     <ul class="park-list" id="parkList"></ul>
     <p class="park-warn">※ 주차 공간이 매우 협소하오니 대중교통 및 셔틀버스 이용을 권장합니다.</p>
+    <div class="near-park">
+      <div class="np-head"><span class="tip-ic"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="4" y="20" width="40" height="14" rx="5" fill="#4d9fd6"/><path d="M11 20l4-8h18l4 8" fill="#cfe6f6" stroke="#4d9fd6" stroke-width="3" stroke-linejoin="round"/><circle cx="14" cy="35" r="4.5" fill="#2c313b"/><circle cx="34" cy="35" r="4.5" fill="#2c313b"/></svg></span><b>인근 주차장 안내</b><em>주차비 지원 불가</em></div>
+      <ul class="park-list" id="nearList"></ul>
+    </div>
   </div>
 </section>
 
@@ -1470,6 +1486,15 @@ $("#parkList").innerHTML = PARKINGS.map(p => { const q = encodeURIComponent(p.se
   return `<li><div class="pk-t"><span class="pk-p">P</span><div><b>${esc(p.name)}</b>${p.desc ? `<small${p.hot ? ' class="hot"' : ""}>${esc(p.desc)}</small>` : ""}</div></div>
   <div class="btns"><a class="btn kakao" href="${p.kakao || "https://map.kakao.com/link/search/" + q}" target="_blank" rel="noopener">카카오</a><a class="btn naver" href="https://map.naver.com/p/search/${q}" target="_blank" rel="noopener">네이버</a></div></li>`; }).join("");
 
+const NEAR_PARKINGS = [
+  { name:"금샘도서관", sub:" 주차장", search:"금샘도서관" },
+  { name:"오륜동공영주차장", sub:"", search:"오륜동공영주차장" },
+  { name:"금정구청", sub:" 주차장", search:"금정구청" },
+  { name:"금정문화회관", sub:" 주차장", search:"금정문화회관" },
+];
+$("#nearList").innerHTML = NEAR_PARKINGS.map(p => { const q = encodeURIComponent(p.search);
+  return `<li><div class="pk-t"><span class="pk-p">P</span><div><b>${esc(p.name)}${esc(p.sub)}</b></div></div></li>`; }).join("");
+
 /* 지회 연락처 */
 $("#branchList").innerHTML = BRANCHES.map(([n, tel]) => `<li><a class="call sm" href="tel:${tel}" aria-label="${n} 전화 걸기"><b><span class="call-ic">${PHONE_SVG}</span>${n}</b><em>${tel}</em></a></li>`).join("");
 
@@ -1505,7 +1530,7 @@ document.addEventListener("click", e => {
 </script>
 <script>
 /* 새 버전 자동 확인: 카카오톡 등에서 예전 화면이 남아 있으면 최신 화면으로 바꿈 */
-(function(){var B="202610271516",ss=null;try{ss=window.sessionStorage}catch(e){}
+(function(){var B="202610271717",ss=null;try{ss=window.sessionStorage}catch(e){}
 if(!window.fetch||!window.TextDecoder)return;
 fetch(location.pathname+"?nc="+Date.now(),{cache:"no-store"}).then(function(r){
  if(!r.ok||!r.body)return null;var rd=r.body.getReader(),dec=new TextDecoder(),s="";
